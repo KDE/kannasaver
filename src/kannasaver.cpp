@@ -98,8 +98,7 @@ Kannasaver::Kannasaver( WId id ) : KScreenSaver( id )
         if(fdb.isSmoothlyScalable(*s) && !(KatakanaFonts.filter(*s).empty())) {
             kDebug()<< *s;
             UsableFontList+=*s;
-        };
-
+        }
 
     srand(time(0));
     readSettings();
@@ -112,6 +111,8 @@ Kannasaver::~Kannasaver()
 
 void Kannasaver::paintEvent( QPaintEvent *e )
 {
+    Q_UNUSED( e );
+    
     QPainter paint(this);
 
     int mywidth = width();
@@ -124,7 +125,8 @@ void Kannasaver::paintEvent( QPaintEvent *e )
     paint.setClipping(false);
     paint.setPen( Qt::white );
     paint.eraseRect(0,0,mywidth,myheight);
-
+    paint.fillRect( 0, 0, mywidth, myheight, Qt::black );
+    
     paint.setFont(*kanaFont);
     paint.drawText(mywidth/3,myheight/3,
                    mywidth/3,myheight/3,
@@ -174,19 +176,12 @@ void Kannasaver::blank()
 
     counter=0;
 
-    the_timer = new QTimer();
-    connect(the_timer, SIGNAL(timeout()), SLOT(draw_kana()));
+    QTimer *the_timer = new QTimer();
+    connect(the_timer, SIGNAL(timeout()), SLOT(update()));
     the_timer->start(5000);
 }
 
 
-/*!
-  \fn kannasaver::draw_kana()
-  */
-void Kannasaver::draw_kana()
-{
-    update();
-}
 
 
 // vim: expandtab:tabstop=4:shiftwidth=4

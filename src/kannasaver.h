@@ -48,13 +48,9 @@ class Kannasaver : public KScreenSaver
         QStringList UsableFontList;
 
     protected:
-        QTimer *the_timer;
         int counter;
         QFont *kanaFont;
         QFont *romajiFont;
-
-        protected slots:
-            void draw_kana();
 };
 
 #endif
