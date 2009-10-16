@@ -36,11 +36,11 @@
  */
 class SetupDlgWidget : public QWidget, public Ui::SetupDlgWidget
 {
-   public:
-      SetupDlgWidget( QWidget *parent = 0 ) : QWidget( parent )
-      {
-         setupUi( this );
-      }
+    public:
+        SetupDlgWidget( QWidget *parent = 0 ) : QWidget( parent )
+    {
+        setupUi( this );
+    }
 };
 
 
@@ -49,12 +49,12 @@ class SetupDlgWidget : public QWidget, public Ui::SetupDlgWidget
  */
 SetupDlg::SetupDlg( QWidget *parent ) : KDialog( parent )
 {
-   init();
+    init();
 }
 
 SetupDlg::~SetupDlg()
 {
-   delete ui;
+    delete ui;
 }
 
 
@@ -63,13 +63,13 @@ SetupDlg::~SetupDlg()
  */
 void SetupDlg::init()
 {
-   setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
-   ui = new SetupDlgWidget( this );
-   setMainWidget( ui );
-   showButtonSeparator( true );
-   enableButtonOk( false );
+    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
+    ui = new SetupDlgWidget( this );
+    setMainWidget( ui );
+    showButtonSeparator( true );
+    enableButtonOk( false );
 }
 
 
-// vim: expandtab:tabstop=3:shiftwidth=3
-// kate: space-indent on; indent-width 3
+// vim: expandtab:tabstop=4:shiftwidth=4
+// kate: space-indent on; indent-width 4

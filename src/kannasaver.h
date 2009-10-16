@@ -31,30 +31,30 @@ class QFont;
 class Kannasaver : public KScreenSaver
 {
     Q_OBJECT
-public:
-    Kannasaver( WId drawable );
-    virtual ~Kannasaver();
+    public:
+        Kannasaver( WId drawable );
+        virtual ~Kannasaver();
 
-private:
-    void readSettings();
-    void blank();
-    int SaverMode;
-    int CharSetToUse;
-    QString KanaFontName;
-    QStringList UsableFontList;
+    private:
+        void readSettings();
+        void blank();
+        int SaverMode;
+        int CharSetToUse;
+        QString KanaFontName;
+        QStringList UsableFontList;
 
-protected:
-    QTimer *the_timer;
-    int counter;
-    QFont *kanaFont;
-    QFont *romajiFont;
+    protected:
+        QTimer *the_timer;
+        int counter;
+        QFont *kanaFont;
+        QFont *romajiFont;
 
-protected slots:
-    void draw_kana();
+        protected slots:
+            void draw_kana();
 };
 
 #endif
 
 
-// vim: expandtab:tabstop=3:shiftwidth=3
-// kate: space-indent on; indent-width 3
+// vim: expandtab:tabstop=4:shiftwidth=4
+// kate: space-indent on; indent-width 4

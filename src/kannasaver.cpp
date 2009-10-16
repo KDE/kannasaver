@@ -71,18 +71,18 @@ class KannasaverInterface : public KScreenSaverInterface
 int main( int argc, char *argv[] )
 {
     s_aboutData = new KAboutData( "kannasaver.kss", 0,
-                                ki18n("Kannasaver"), "1.2",
-                                ki18n("A screensaver that shows Japanese characters."),
-                                KAboutData::License_GPL,
-                                ki18n("Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer"),
-                                KLocalizedString(),
-                                "foo" );
+            ki18n("Kannasaver"), "1.2",
+            ki18n("A screensaver that shows Japanese characters."),
+            KAboutData::License_GPL,
+            ki18n("Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer"),
+            KLocalizedString(),
+            "foo" );
     s_aboutData->addAuthor( ki18n("Mathias Homann"),
-                            ki18n("Original author of Kannasaver."),
-                            "Mathias.Homann@eregion.de");
+            ki18n("Original author of Kannasaver."),
+            "Mathias.Homann@eregion.de");
     s_aboutData->addAuthor( ki18n("Frederik Schwarzer"),
-                            ki18n("Port to KDE4"),
-                            "schwarzerf@gmail.com");
+            ki18n("Port to KDE4"),
+            "schwarzerf@gmail.com");
 
     KannasaverInterface kss;
     return kScreenSaverMain( argc, argv, kss );
@@ -99,12 +99,12 @@ Kannasaver::Kannasaver( WId id ) : KScreenSaver( id )
 
     // find all fonts that have both charsets, and are smoothly scalable
     for(QStringList::Iterator s = HiraganaFonts.begin(); s != HiraganaFonts.end(); ++s)
-    		if(fdb.isSmoothlyScalable(*s) && !(KatakanaFonts.filter(*s).empty())) {
+        if(fdb.isSmoothlyScalable(*s) && !(KatakanaFonts.filter(*s).empty())) {
 #ifdef DEBUG
-			cout << *s << endl; //
+            cout << *s << endl; //
 #endif
-			UsableFontList+=*s;
-		};
+            UsableFontList+=*s;
+        };
 
 
     srand(time(0));
@@ -127,9 +127,9 @@ void Kannasaver::blank()
 {
 
     if(UsableFontList.empty()) {
-    	QMessageBox mb(tr2i18n("Kannasaver"), tr2i18n("There are no usable (That is, capable of Hiragana or Katakana, and\n soft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"."),
-	QMessageBox::Critical,QMessageBox::Ok, Qt::NoButton, Qt::NoButton);
-	if(mb.exec()==QMessageBox::Ok) exit(-1);
+        QMessageBox mb(tr2i18n("Kannasaver"), tr2i18n("There are no usable (That is, capable of Hiragana or Katakana, and\n soft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"."),
+                QMessageBox::Critical,QMessageBox::Ok, Qt::NoButton, Qt::NoButton);
+        if(mb.exec()==QMessageBox::Ok) exit(-1);
     }
 
     kanaFont = new QFont(KanaFontName);
@@ -161,8 +161,8 @@ void Kannasaver::blank()
 
 
 /*!
-    \fn kannasaver::draw_kana()
- */
+  \fn kannasaver::draw_kana()
+  */
 void Kannasaver::draw_kana()
 {
     QPainter paint(this);
@@ -184,19 +184,19 @@ void Kannasaver::draw_kana()
 
     paint.setFont(*kanaFont);
     paint.drawText(mywidth/3,myheight/3,
-    		       mywidth/3,myheight/3,
-                   Qt::AlignCenter,
-		   (style?
-		   	(QString::fromUtf8(kanatable[counter].pKatakana)):(QString::fromUtf8(kanatable[counter].pHiragana))));
+            mywidth/3,myheight/3,
+            Qt::AlignCenter,
+            (style?
+             (QString::fromUtf8(kanatable[counter].pKatakana)):(QString::fromUtf8(kanatable[counter].pHiragana))));
 
     paint.setFont(*romajiFont);
     paint.drawText(3*(mywidth/4),3*(myheight/4),mywidth/4,myheight/4,
-		   Qt::AlignCenter,
-		   QString::fromUtf8(kanatable[counter].pRomaji, -1));
+            Qt::AlignCenter,
+            QString::fromUtf8(kanatable[counter].pRomaji, -1));
 
 
 }
 
 
-// vim: expandtab:tabstop=3:shiftwidth=3
-// kate: space-indent on; indent-width 3
+// vim: expandtab:tabstop=4:shiftwidth=4
+// kate: space-indent on; indent-width 4

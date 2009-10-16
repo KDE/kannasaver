@@ -21,9 +21,9 @@
 #define KANA_H
 
 typedef struct {
-  const char    * pRomaji;
-  const char    * pHiragana;
-  const char    * pKatakana;
+    const char    * pRomaji;
+    const char    * pHiragana;
+    const char    * pKatakana;
 } transInfo;
 
 
@@ -141,5 +141,5 @@ static transInfo kanatable[] =
 #endif
 
 
-// vim: expandtab:tabstop=3:shiftwidth=3
-// kate: space-indent on; indent-width 3
+// vim: expandtab:tabstop=4:shiftwidth=4
+// kate: space-indent on; indent-width 4

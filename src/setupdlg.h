@@ -36,17 +36,17 @@ class SetupDlgWidget;
  */
 class SetupDlg : public KDialog
 {
-   Q_OBJECT
-   public:
-      explicit SetupDlg( QWidget *parent = 0 );
-      ~SetupDlg();
-   private:
-      void init();
+    Q_OBJECT
+    public:
+        explicit SetupDlg( QWidget *parent = 0 );
+        ~SetupDlg();
+    private:
+        void init();
 
-      SetupDlgWidget *ui;
+        SetupDlgWidget *ui;
 };
 
 #endif
 
-// vim: expandtab:tabstop=3:shiftwidth=3
-// kate: space-indent on; indent-width 3
+// vim: expandtab:tabstop=4:shiftwidth=4
+// kate: space-indent on; indent-width 4
