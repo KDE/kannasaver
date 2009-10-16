@@ -23,6 +23,10 @@
 
 #include <kscreensaver.h>
 
+#include <QPaintEvent>
+#include <QString>
+#include <QStringList>
+
 class QTimer;
 class QFont;
 
@@ -32,6 +36,7 @@ class Kannasaver : public KScreenSaver
     public:
         Kannasaver( WId drawable );
         virtual ~Kannasaver();
+        virtual void paintEvent( QPaintEvent *e );
 
     private:
         void readSettings();

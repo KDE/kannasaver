@@ -87,7 +87,6 @@ int main( int argc, char *argv[] )
 }
 
 
-
 Kannasaver::Kannasaver( WId id ) : KScreenSaver( id )
 {
     QFontDatabase fdb;
@@ -114,10 +113,41 @@ Kannasaver::~Kannasaver()
 {}
 
 
+void Kannasaver::paintEvent( QPaintEvent *e )
+{
+    QPainter paint(this);
+
+    int mywidth = width();
+    int myheight = height();
+    bool style=(CharSetToUse==2?rand()%2:CharSetToUse);
+    counter = static_cast<int>(rand()%(SaverMode==2?104:(SaverMode==1?74:46)));
+
+    #ifdef DEBUG
+    cout  << "Stil: " << style << "; Char: " << kanatable[counter].pRomaji << " " ;
+    cout << (style?kanatable[counter].pKatakana:kanatable[counter].pHiragana)<< endl;
+    #endif
+
+    paint.setClipping(false);
+    paint.setPen( Qt::white );
+    paint.eraseRect(0,0,mywidth,myheight);
+
+    paint.setFont(*kanaFont);
+    paint.drawText(mywidth/3,myheight/3,
+                   mywidth/3,myheight/3,
+                   Qt::AlignCenter,
+                   (style ?
+                       (QString::fromUtf8(kanatable[counter].pKatakana)) :
+                       (QString::fromUtf8(kanatable[counter].pHiragana))));
+
+    paint.setFont(*romajiFont);
+    paint.drawText(3*(mywidth/4),3*(myheight/4),mywidth/4,myheight/4,
+                   Qt::AlignCenter,
+                   QString::fromUtf8(kanatable[counter].pRomaji, -1));
+}
+
 //! read configuration settings from config file
 void Kannasaver::readSettings()
 {
-    KConfigDialog* dialog = new KConfigDialog( this, "settings", Settings::self() );
 }
 
 
@@ -148,8 +178,6 @@ void Kannasaver::blank()
     cout << "Romaji Font: " << romajiFont->family() << endl ;
 #endif
 
-    //schwarzer: just temporarily -- setBackgroundColor( QColor(Qt::black) );
-    //schwarzer: just temporarily -- erase();
     counter=0;
 
     the_timer = new QTimer();
@@ -163,36 +191,7 @@ void Kannasaver::blank()
   */
 void Kannasaver::draw_kana()
 {
-    QPainter paint(this);
-
-    int mywidth = width();
-    int myheight = height();
-    bool style=(CharSetToUse==2?rand()%2:CharSetToUse);
-    counter = (int) rand()%(SaverMode==2?104:(SaverMode==1?74:46));
-
-#ifdef DEBUG
-    cout  << "Stil: " << style << "; Char: " << kanatable[counter].pRomaji << " " ;
-    cout << (style?kanatable[counter].pKatakana:kanatable[counter].pHiragana)<< endl;
-#endif
-
-
-    paint.setClipping(false);
-    paint.setPen( Qt::white );
-    paint.eraseRect(0,0,mywidth,myheight);
-
-    paint.setFont(*kanaFont);
-    paint.drawText(mywidth/3,myheight/3,
-            mywidth/3,myheight/3,
-            Qt::AlignCenter,
-            (style?
-             (QString::fromUtf8(kanatable[counter].pKatakana)):(QString::fromUtf8(kanatable[counter].pHiragana))));
-
-    paint.setFont(*romajiFont);
-    paint.drawText(3*(mywidth/4),3*(myheight/4),mywidth/4,myheight/4,
-            Qt::AlignCenter,
-            QString::fromUtf8(kanatable[counter].pRomaji, -1));
-
-
+    update();
 }
 
 
