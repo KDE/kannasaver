@@ -6,7 +6,7 @@ find_package( KDE4 REQUIRED )
 include( KDE4Defaults )
 include( MacroLibrary )
 
-add_definitions( ${QT_DEFINITIONS} ${KDE4_DEFINITIONS} -pedantic -std=c++98 -Wstrict-null-sentinel -Wold-style-cast -Woverloaded-virtual -fexceptions )
+add_definitions( ${QT_DEFINITIONS} ${KDE4_DEFINITIONS} )
 remove_definitions( -DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT )
 
 set ( kscreensaver_FIND_REQUIRED TRUE )
