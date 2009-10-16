@@ -200,7 +200,7 @@ void kannasaver::blank()
     
     if(UsableFontList.empty()) {
     	QMessageBox mb(tr2i18n("Kannasaver"), tr2i18n("There are no usable (That is, capable of Hiragana or Katakana, and\n soft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"."),
-	QMessageBox::Critical,QMessageBox::Ok, QMessageBox::NoButton, QMessageBox::NoButton);
+	QMessageBox::Critical,QMessageBox::Ok, Qt::NoButton, Qt::NoButton);
 	if(mb.exec()==QMessageBox::Ok) exit(-1);
     }
     
@@ -222,7 +222,7 @@ void kannasaver::blank()
     cout << "Romaji Font: " << romajiFont->family() << endl ;
 #endif    
     
-    setBackgroundColor( QColor(black)  );
+    setBackgroundColor( QColor(Qt::black)  );
     erase();
     counter=0;
     

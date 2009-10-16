@@ -163,7 +163,7 @@
                             <cstring>spacer4</cstring>
                         </property>
                         <property name="orientation">
-                            <enum>Horizontal</enum>
+                            <enum>Qt::Horizontal</enum>
                         </property>
                         <property name="sizeType">
                             <enum>Expanding</enum>
@@ -316,7 +316,7 @@
                     <bool>true</bool>
                 </property>
                 <property name="alignment">
-                    <set>AlignCenter</set>
+                    <set>Qt::AlignCenter</set>
                 </property>
                 <property name="toolTip" stdset="0">
                     <string>This is a font sample for the font selected below. it reads "Hiragana Katakana Nihongo"</string>
