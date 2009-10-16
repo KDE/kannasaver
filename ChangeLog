@@ -1,0 +1,52 @@
+2004-12-31 Mathias Homann <Mathias.Homann@eregion.de>
+	started to work on 1.1; its going to have a font selection,
+	and a more flexible way to configure which characters are
+	showed.
+	
+2004-10-04 Mathias Homann <Mathias.Homann@eregion.de>
+	Final Version; font mess is fixed now. 
+
+2004-10-04 Mathias Homann <Mathias.Homann@eregion.de>
+	final version, font mess fixed 
+
+2004-10-04 Mathias Homann <Mathias.Homann@eregion.de>
+	Final version; font mess fixed 
+
+2004-10-04 Mathias Homann <Mathias.Homann@eregion.de>
+	Final version. Font selection thing fixed. 
+
+2004-09-27 Mathias Homann <Mathias.Homann@eregion.de>
+	Dialog fixed, i18n done. Lets call it 0.9.9 while noone else said that its good. 
+
+2004-09-26 Mathias Homann <Mathias.Homann@eregion.de>
+	yay! first really working version! 
+	TODO: 
+	 - make the fugly setup dialog less fugly 
+	 - i18n, at least rudimentary. 
+	 
+
+2004-09-26 Mathias Homann <Mathias.Homann@eregion.de>
+	first working version... -TODO: fix the options dialog. and try to get i18n working. 
+
+2004-09-26 Mathias Homann <Mathias.Homann@eregion.de>
+	started painting in the window. of course it doesnt work. 
+
+2004-09-25 Mathias Homann <Mathias.Homann@eregion.de>
+	font list filtering seems to work; limiting a KFontDialog to a fontlist does not. grmbl. 
+
+2004-09-22 Mathias Homann <Mathias.Homann@eregion.de>
+	timer for "animations" added; played with font lists. can it be assumed that a font which has hiragana always has katakana as well? 
+
+2004-09-22 Mathias Homann <Mathias.Homann@eregion.de>
+	restructured the table of romaji <-> kana translations 
+
+2004-09-21 Mathias Homann <Mathias.Homann@eregion.de>
+	kana.h is complete 
+
+2004-08-30 Mathias Homann <Mathias.Homann@eregion.de>
+	hiragana table is complete 
+
+2004-08-30 Mathias Homann <Mathias.Homann@eregion.de>
+	added a kana header file 
+
+ 

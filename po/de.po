@@ -1,0 +1,206 @@
+# translation of de.po to Deutsch
+# translation of kannasaver.po to Deutsch
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Mathias Homann <lemmy@megatokyo.de>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-03 23:49+0100\n"
+"PO-Revision-Date: 2005-01-04 00:02+0100\n"
+"Last-Translator: Mathias Homann <lemmy@megatokyo.de>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9\n"
+
+#: kannasaver.cpp:46
+msgid "kannasaver"
+msgstr "Kannasaver"
+
+#: kannasaver.cpp:202
+msgid "Kannasaver"
+msgstr "Kannasaver"
+
+#: kannasaver.cpp:202
+msgid ""
+"There are no usable (That is, capable of Hiragana or Katakana, and\n"
+" soft-scalable) fonts on your system. You must get and install\n"
+"some before using this screensaver. SuSE comes with several\n"
+"suitable fonts, you just have to install them in yast. Users\n"
+"of other Linux distributions should google for one of the following:\n"
+"\"Kochi Gothic\" or \"Baekmuk Gulim\"."
+msgstr "Auf Ihrem System sind keine passenden Schriftarten für japanische Zeichen installiert. Installieren Sie erst passende Schriftarten. Eine passende Schriftart ist der frei verfügbare \"mikachan\"-font."
+
+#: kannasaverui.cpp:119 rc.cpp:2
+#, no-c-format
+msgid "Kannasaver Setup"
+msgstr "Kannasaver Konfiguration"
+
+#: kannasaverui.cpp:120 rc.cpp:4
+#, no-c-format
+msgid "Select the font for kana characters"
+msgstr "Wählen Sie die Schriftart für die japanischen Zeichen."
+
+#: kannasaverui.cpp:121 rc.cpp:6
+#, no-c-format
+msgid ""
+"You can select the font here. Only fonts capable of japanese characters are "
+"in this list."
+msgstr "Wählen Sie hier die Schrift, in der die japanischen Zeichen angezeigt werden sollen. Nur Schriftarten, die auch japanisch anzeigen können, erscheinen in der Liste."
+
+#: kannasaverui.cpp:122 rc.cpp:8
+#, no-c-format
+msgid "Use Chararacters"
+msgstr "Benutze folgende Zeichen"
+
+#: kannasaverui.cpp:123 rc.cpp:10
+#, no-c-format
+msgid "H&iragana"
+msgstr "H&iragana"
+
+#: kannasaverui.cpp:124 rc.cpp:12
+#, no-c-format
+msgid "Alt+I"
+msgstr "Alt+I"
+
+#: kannasaverui.cpp:125 rc.cpp:14
+#, no-c-format
+msgid "Use Hiragana"
+msgstr "Benutze Hiragana"
+
+#: kannasaverui.cpp:126 rc.cpp:16
+#, no-c-format
+msgid "Select Hiragana characters."
+msgstr "Verwende Hiragana-Zeichen."
+
+#: kannasaverui.cpp:127 rc.cpp:18
+#, no-c-format
+msgid "&Katakana"
+msgstr "&Katakana"
+
+#: kannasaverui.cpp:128 rc.cpp:20
+#, no-c-format
+msgid "Alt+K"
+msgstr "Alt+K"
+
+#: kannasaverui.cpp:129 rc.cpp:22
+#, no-c-format
+msgid "use Katakana"
+msgstr "verwende Katakana"
+
+#: kannasaverui.cpp:130 rc.cpp:24
+#, no-c-format
+msgid "Select Katakana characters."
+msgstr "Verwende Katakana-Zeichen."
+
+#: kannasaverui.cpp:131 rc.cpp:26
+#, no-c-format
+msgid "Bo&th"
+msgstr "B&eide"
+
+#: kannasaverui.cpp:132 rc.cpp:28
+#, no-c-format
+msgid "Alt+T"
+msgstr "Alt+E"
+
+#: kannasaverui.cpp:133 rc.cpp:30
+#, no-c-format
+msgid "Mix Hiragana and Katakana"
+msgstr "Mische Hiragana und Katakana."
+
+#: kannasaverui.cpp:134 rc.cpp:32
+#, no-c-format
+msgid "Randomly mix Hiragana and Katakana."
+msgstr "Mische Hiragana und Katakana."
+
+#: kannasaverui.cpp:136 rc.cpp:36
+#, no-c-format
+msgid "Alt+O"
+msgstr "Alt+O"
+
+#: kannasaverui.cpp:138 rc.cpp:40
+#, no-c-format
+msgid "Alt+C"
+msgstr "Alt+C"
+
+#: kannasaverui.cpp:139 rc.cpp:42
+#, no-c-format
+msgid "Mode"
+msgstr "Modus"
+
+#: kannasaverui.cpp:142 rc.cpp:46
+#, no-c-format
+msgid "Basic + E&xtended Chars"
+msgstr "Grund- und e&rweiterte Zeichen"
+
+#: kannasaverui.cpp:143 rc.cpp:48
+#, no-c-format
+msgid "Alt+X"
+msgstr "Alt+R"
+
+#: kannasaverui.cpp:144 rc.cpp:50
+#, no-c-format
+msgid "Basic + extended characters"
+msgstr "Grundlegende und erweiterte Zeichen"
+
+#: kannasaverui.cpp:145 rc.cpp:52
+#, no-c-format
+msgid "Select basic and extended characters."
+msgstr "Grundlegende und erweiterte Zeichen"
+
+#: kannasaverui.cpp:146 rc.cpp:54
+#, no-c-format
+msgid "Basic + Extended + Com&pound Chars"
+msgstr "&Alle Zeichen"
+
+#: kannasaverui.cpp:147 rc.cpp:56
+#, no-c-format
+msgid "Alt+P"
+msgstr "Alt+A"
+
+#: kannasaverui.cpp:148 rc.cpp:58
+#, no-c-format
+msgid "Basic, extended and compound characters"
+msgstr "Grund-, erweiterte und zusammengesetzte Zeichen"
+
+#: kannasaverui.cpp:149 rc.cpp:60
+#, no-c-format
+msgid "Select all characters, basic, extended and compound."
+msgstr "Verwende alle Zeichen: die 46 Grundzeichen, die erweiterten Zeichen und die zusammengesetzten Zeichen."
+
+#: kannasaverui.cpp:150 rc.cpp:62
+#, no-c-format
+msgid "&Basic Chars"
+msgstr "&Grundzeichen"
+
+#: kannasaverui.cpp:151 rc.cpp:64
+#, no-c-format
+msgid "Alt+B"
+msgstr "Alt+G"
+
+#: kannasaverui.cpp:152 rc.cpp:66
+#, no-c-format
+msgid "Basic characters"
+msgstr "Nur Grundzeichen."
+
+#: kannasaverui.cpp:153 rc.cpp:68
+#, no-c-format
+msgid "Select only the basic 46 characters."
+msgstr "Verwende nur die grundlegenden 46 Zeichen."
+
+#: kannasaverui.cpp:154 rc.cpp:70
+#, no-c-format
+msgid "ひらがな カタカナ 日本語"
+msgstr "ひらがな カタカナ 日本語"
+
+#: kannasaverui.cpp:155 rc.cpp:72
+#, no-c-format
+msgid ""
+"This is a font sample for the font selected below. it reads \"Hiragana "
+"Katakana Nihongo\""
+msgstr "Hier sehen Sie ein Schriftbeispiel mit der eingestellten Schrift. Da steht: \"Hiragana Katakana Nihongo\""
+
