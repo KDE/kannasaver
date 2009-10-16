@@ -17,6 +17,5 @@ find_library( KSCREENSAVER_LIBRARY NAMES kscreensaver PATHS ${KDE4_LIB_DIR} )
 include( FindPackageHandleStandardArgs )
 find_package_handle_standard_args( kscreensaver DEFAULT_MSG KSCREENSAVER_LIBRARY KSCREENSAVER_INCLUDE_DIR )
 
-ADD_SUBDIRECTORY( src )
-#ADD_SUBDIRECTORY( doc )
+add_subdirectory( src )
 
