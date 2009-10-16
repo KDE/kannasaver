@@ -25,6 +25,9 @@
 
 #include <kscreensaver.h>
 
+class QTimer;
+class QFont;
+
 class Kannasaver : public KScreenSaver
 {
     Q_OBJECT
@@ -41,12 +44,17 @@ private:
     QStringList UsableFontList;
 
 protected:
-    QTimer * the_timer;
+    QTimer *the_timer;
     int counter;
-    QFont * kanaFont;
-    QFont * romajiFont;
+    QFont *kanaFont;
+    QFont *romajiFont;
+
 protected slots:
     void draw_kana();
 };
 
 #endif
+
+
+// vim: expandtab:tabstop=3:shiftwidth=3
+// kate: space-indent on; indent-width 3

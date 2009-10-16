@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Mathias Homann                                  *
- *   Mathias.Homann@eregion.de                                             *
+ *   Copyright 2004 Mathias Homann <Mathias.Homann@eregion.de              *
+ *   Copyright 2009 Frederik Schwarzer <schwarzerf@gmail.com>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,29 +18,32 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "settings.h"
-
-#include <stdlib.h>
-#include <kapplication.h>
-#include <klocale.h>
-#include <kconfig.h>
-#include <qcheckbox.h>
-#include <qcolor.h>
-#include <qfontdatabase.h>
-#include <qlabel.h>
-#include <qmessagebox.h>
-#include <qtimer.h>
-#include <qpainter.h>
-#include <kglobal.h>
-#include <qradiobutton.h>
-#ifdef DEBUG
-#include <iostream.h>
-#endif
 #include "kannasaver.h"
 #include "setupdlg.h"
 #include "kana.h"
-#include <KConfigDialog>
+#include "settings.h"
+
+#include <kapplication.h>
+#include <kconfig.h>
+#include <kconfigdialog.h>
+#include <kglobal.h>
+#include <klocale.h>
+
+#include <QCheckBox>
+#include <QColor>
+#include <QFontDatabase>
+#include <QLabel>
+#include <QMessageBox>
+#include <QTimer>
+#include <QPainter>
+#include <QRadioButton>
+
+#include <stdlib.h>
 #include <time.h>
+
+#ifdef DEBUG
+#include <iostream.h>
+#endif
 
 static KAboutData *s_aboutData = 0;
 
@@ -194,3 +197,6 @@ void Kannasaver::draw_kana()
 
 }
 
+
+// vim: expandtab:tabstop=3:shiftwidth=3
+// kate: space-indent on; indent-width 3

@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Mathias Homann                                  *
- *   Mathias.Homann@eregion.de                                             *
+ *   Copyright 2004  Mathias Homann <Mathias.Homann@eregion.de>            *
+ *   Copyright 2009  Frederik Schwarzer <schwarzerf@gmail.com>             *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +17,8 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef _KANA_H_
-#define _KANA_H_
+#ifndef KANA_H
+#define KANA_H
 
 typedef struct {
   const char    * pRomaji;
@@ -139,3 +139,7 @@ static transInfo kanatable[] =
 };
 
 #endif
+
+
+// vim: expandtab:tabstop=3:shiftwidth=3
+// kate: space-indent on; indent-width 3
