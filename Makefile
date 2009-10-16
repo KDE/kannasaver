@@ -2,7 +2,7 @@
 
 all:
 	mkdir -p build install
-	cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=debug && make install
+	cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=debug -VERBOSE=1 && make install
 
 l10n:
 	cd l10n && ./extract-messages.sh
