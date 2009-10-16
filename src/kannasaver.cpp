@@ -24,6 +24,7 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kconfigdialog.h>
+#include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
 
@@ -39,9 +40,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#ifdef DEBUG
-#include <iostream.h>
-#endif
 
 static KAboutData *s_aboutData = 0;
 
@@ -97,9 +95,7 @@ Kannasaver::Kannasaver( WId id ) : KScreenSaver( id )
     // find all fonts that have both charsets, and are smoothly scalable
     for(QStringList::Iterator s = HiraganaFonts.begin(); s != HiraganaFonts.end(); ++s)
         if(fdb.isSmoothlyScalable(*s) && !(KatakanaFonts.filter(*s).empty())) {
-#ifdef DEBUG
-            cout << *s << endl; //
-#endif
+            kDebug()<< *s;
             UsableFontList+=*s;
         };
 
@@ -122,10 +118,7 @@ void Kannasaver::paintEvent( QPaintEvent *e )
     bool style=(CharSetToUse==2?rand()%2:CharSetToUse);
     counter = static_cast<int>(rand()%(SaverMode==2?104:(SaverMode==1?74:46)));
 
-    #ifdef DEBUG
-    cout  << "Stil: " << style << "; Char: " << kanatable[counter].pRomaji << " " ;
-    cout << (style?kanatable[counter].pKatakana:kanatable[counter].pHiragana)<< endl;
-    #endif
+    kDebug() << "Stil: " << style << "; Char: " << kanatable[counter].pRomaji << (style?kanatable[counter].pKatakana:kanatable[counter].pHiragana);
 
     paint.setClipping(false);
     paint.setPen( Qt::white );
@@ -153,11 +146,13 @@ void Kannasaver::readSettings()
 
 void Kannasaver::blank()
 {
-
     if(UsableFontList.empty()) {
-        QMessageBox mb(tr2i18n("Kannasaver"), tr2i18n("There are no usable (That is, capable of Hiragana or Katakana, and\n soft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"."),
-                QMessageBox::Critical,QMessageBox::Ok, Qt::NoButton, Qt::NoButton);
-        if(mb.exec()==QMessageBox::Ok) exit(-1);
+        QMessageBox mb(tr2i18n("Kannasaver"),
+                       tr2i18n("There are no usable (That is, capable of Hiragana or Katakana, and\nsoft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"."),
+                       QMessageBox::Critical, QMessageBox::Ok, Qt::NoButton, Qt::NoButton);
+        if(mb.exec()==QMessageBox::Ok) {
+            exit(1);
+        }
     }
 
     kanaFont = new QFont(KanaFontName);
@@ -173,10 +168,8 @@ void Kannasaver::blank()
     // romaji are shown in 1/10 of screen height
     romajiFont->setPixelSize(myheight/10);
 
-#ifdef DEBUG
-    cout << "Kana Font: " << kanaFont->family() << endl ;
-    cout << "Romaji Font: " << romajiFont->family() << endl ;
-#endif
+    kDebug() << "Kana Font: " << kanaFont->family();
+    kDebug() << "Romaji Font: " << romajiFont->family();
 
     counter=0;
 
