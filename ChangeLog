@@ -1,3 +1,9 @@
+2007-01-17 Mathias Homann <MHomann@linotype.com>
+	added translation: dutch 
+
+2005-10-31 Mathias Homann <Mathias.Homann@eregion.de>
+	more debug output 
+
 2004-12-31 Mathias Homann <Mathias.Homann@eregion.de>
 	started to work on 1.1; its going to have a font selection,
 	and a more flexible way to configure which characters are
