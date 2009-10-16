@@ -20,6 +20,5 @@ find_package_handle_standard_args( libGLU DEFAULT_MSG OPENGL_glu_LIBRARY OPENGL_
 find_package_handle_standard_args( QtOpenGL DEFAULT_MSG QT_QTOPENGL_LIBRARY QT_QTOPENGL_INCLUDE_DIR )
 
 ADD_SUBDIRECTORY( src )
-#ADD_SUBDIRECTORY( l10n )
 #ADD_SUBDIRECTORY( doc )
 
