@@ -48,7 +48,6 @@ class Kannasaver : public KScreenSaver
         QStringList UsableFontList;
 
     protected:
-        int counter;
         QFont *kanaFont;
         QFont *romajiFont;
 };

@@ -118,7 +118,7 @@ void Kannasaver::paintEvent( QPaintEvent *e )
     int mywidth = width();
     int myheight = height();
     bool style=(CharSetToUse==2?rand()%2:CharSetToUse);
-    counter = static_cast<int>(rand()%(SaverMode==2?104:(SaverMode==1?74:46)));
+    int counter = static_cast<int>(rand()%(SaverMode==2?104:(SaverMode==1?74:46)));
 
     kDebug() << "Stil: " << style << "; Char: " << kanatable[counter].pRomaji << (style?kanatable[counter].pKatakana:kanatable[counter].pHiragana);
 
@@ -174,7 +174,6 @@ void Kannasaver::blank()
     kDebug() << "Kana Font: " << kanaFont->family();
     kDebug() << "Romaji Font: " << romajiFont->family();
 
-    counter=0;
 
     QTimer *the_timer = new QTimer();
     connect(the_timer, SIGNAL(timeout()), SLOT(update()));
