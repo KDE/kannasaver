@@ -88,6 +88,8 @@ int main( int argc, char *argv[] )
 
 Kannasaver::Kannasaver( WId id ) : KScreenSaver( id )
 {
+    setAttribute( Qt::WA_OpaquePaintEvent, true );
+    
     QFontDatabase fdb;
     // FIXME: Is there a way to tell katakana and hiragana apart here? (schwarzer)
     QStringList KatakanaFonts(fdb.families(QFontDatabase::Japanese));
@@ -124,7 +126,6 @@ void Kannasaver::paintEvent( QPaintEvent *e )
 
     paint.setClipping(false);
     paint.setPen( Qt::white );
-    paint.eraseRect(0,0,mywidth,myheight);
     paint.fillRect( 0, 0, mywidth, myheight, Qt::black );
     
     paint.setFont(*kanaFont);
