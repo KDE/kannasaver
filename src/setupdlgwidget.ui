@@ -80,7 +80,7 @@
            <enum>QFrame::Sunken</enum>
           </property>
           <property name="text">
-           <string>ひらがな カタカナ 日本語</string>
+           <string comment="KDE::DoNotExtract">ひらがな カタカナ 日本語</string>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
