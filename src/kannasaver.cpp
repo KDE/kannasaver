@@ -68,7 +68,7 @@ class KannasaverInterface : public KScreenSaverInterface
 int main( int argc, char *argv[] )
 {
     s_aboutData = new KAboutData( "kannasaver.kss", 0,
-            ki18n("Kannasaver"), "1.2",
+            ki18n("Kannasaver"), "1.2-dev",
             ki18n("A screensaver that shows Japanese characters."),
             KAboutData::License_GPL,
             ki18n("Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer"),
