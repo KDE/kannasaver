@@ -1,5 +1,5 @@
-File=kannasaver.kcfg
-ClassName=Settings
+File=kannasaver_settings.kcfg
+ClassName=MySettings
 Singleton=true
 Mutators=true
 
