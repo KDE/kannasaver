@@ -24,6 +24,7 @@
 
 #include "setupdlg.h"
 #include "ui_setupdlgwidget.h"
+#include "settings.h"
 
 #include <QWidget>
 
@@ -45,13 +46,15 @@ class SetupDlgWidget : public QWidget, public Ui::SetupDlgWidget
 /**
  * @brief Constructor
  */
-SetupDlg::SetupDlg( QWidget *parent ) : KDialog( parent )
+SetupDlg::SetupDlg( QWidget *parent ) : KConfigDialog( parent, "MySettings", MySettings::self() )
 {
     init();
+    MySettings::self()->readConfig();
 }
 
 SetupDlg::~SetupDlg()
 {
+    MySettings::self()->writeConfig();
     delete ui;
 }
 
@@ -61,11 +64,13 @@ SetupDlg::~SetupDlg()
  */
 void SetupDlg::init()
 {
-    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
+//    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
     ui = new SetupDlgWidget( this );
     setMainWidget( ui );
-    showButtonSeparator( true );
-    enableButtonOk( true );
+//    showButtonSeparator( true );
+//    enableButtonOk( true );
+//    MySettings::self()->readConfig();
+//    kcfg_mode
 }
 
 
