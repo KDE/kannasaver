@@ -6,13 +6,18 @@
   <kcfgfile name="kannasaverrc"/>
   <include>kglobalsettings.h</include>
   <group name="kannasaver">
-    <entry name="CarsToShow" type="Enum">
+    <entry name="mode" type="Enum">
       <label>How many characters should be shown.</label>
-      <choices>0</choices>
-      <choices>1</choices>
-      <choices>2</choices>
+      <choices>Basic</choices>
+      <choices>Basic + Extended</choices>
+      <choices>Basic + Extended + Compound</choices>
     </entry>
-    <entry name="Font" type="Font">
+    <entry name="style" type="Enum">
+      <label>Which style should be used</label>
+      <choices>Hiragana</choices>
+      <choices>Katakana</choices>
+    </entry>
+    <entry name="font" type="Font">
       <label>The font used to display the characters.</label>
     </entry>
   </group>

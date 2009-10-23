@@ -65,7 +65,7 @@ void SetupDlg::init()
     ui = new SetupDlgWidget( this );
     setMainWidget( ui );
     showButtonSeparator( true );
-    enableButtonOk( false );
+    enableButtonOk( true );
 }
 
 

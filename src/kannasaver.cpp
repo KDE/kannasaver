@@ -145,6 +145,8 @@ void Kannasaver::paintEvent( QPaintEvent *e )
 //! read configuration settings from config file
 void Kannasaver::readSettings()
 {
+    CharSetToUse=0;
+    SaverMode=2;
 }
 
 
