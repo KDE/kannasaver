@@ -23,6 +23,7 @@
 #include "setupdlg.h"
 
 #include <kscreensaver.h>
+#include "kanasettings.h"
 
 #include <QPaintEvent>
 #include <QString>
@@ -38,6 +39,7 @@ class Kannasaver : public KScreenSaver
         Kannasaver( WId drawable );
         virtual ~Kannasaver();
         virtual void paintEvent( QPaintEvent *e );
+        KanaSettings* MySettings;
 
     private:
         void readSettings();

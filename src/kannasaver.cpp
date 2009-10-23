@@ -46,63 +46,65 @@ static KAboutData *s_aboutData = 0;
 
 class KannasaverInterface : public KScreenSaverInterface
 {
-    public:
-        virtual KAboutData *aboutData() {
-            return s_aboutData;
-        }
+public:
+    virtual KAboutData *aboutData()
+    {
+        return s_aboutData;
+    }
 
-        /** function to create screen saver object */
-        virtual KScreenSaver *create( WId id )
-        {
-            return new Kannasaver( id );
-        }
+    /** function to create screen saver object */
+    virtual KScreenSaver *create ( WId id )
+    {
+        return new Kannasaver ( id );
+    }
 
-        /** function to create setup dialog for screen saver */
-        virtual QDialog *setup()
-        {
-            return new SetupDlg();
-        }
+    /** function to create setup dialog for screen saver */
+    virtual QDialog *setup()
+    {
+        return new SetupDlg();
+    }
 };
 
 
-int main( int argc, char *argv[] )
+int main ( int argc, char *argv[] )
 {
-    s_aboutData = new KAboutData( "kannasaver.kss", 0,
-            ki18n("Kannasaver"), "1.2-dev",
-            ki18n("A screensaver that shows Japanese characters."),
-            KAboutData::License_GPL,
-            ki18n("Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer"),
-            KLocalizedString(),
-            "foo" );
-    s_aboutData->addAuthor( ki18n("Mathias Homann"),
-            ki18n("Original author of Kannasaver."),
-            "Mathias.Homann@eregion.de");
-    s_aboutData->addAuthor( ki18n("Frederik Schwarzer"),
-            ki18n("Port to KDE4"),
-            "schwarzerf@gmail.com");
+    s_aboutData = new KAboutData ( "kannasaver.kss", 0,
+                                   ki18n ( "Kannasaver" ), "1.2-dev",
+                                   ki18n ( "A screensaver that shows Japanese characters." ),
+                                   KAboutData::License_GPL,
+                                   ki18n ( "Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer" ),
+                                   KLocalizedString(),
+                                   "foo" );
+    s_aboutData->addAuthor ( ki18n ( "Mathias Homann" ),
+                             ki18n ( "Original author of Kannasaver." ),
+                             "Mathias.Homann@eregion.de" );
+    s_aboutData->addAuthor ( ki18n ( "Frederik Schwarzer" ),
+                             ki18n ( "Port to KDE4" ),
+                             "schwarzerf@gmail.com" );
 
     KannasaverInterface kss;
-    return kScreenSaverMain( argc, argv, kss );
+    return kScreenSaverMain ( argc, argv, kss );
 }
 
 
-Kannasaver::Kannasaver( WId id ) : KScreenSaver( id )
+Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )
 {
-    setAttribute( Qt::WA_OpaquePaintEvent, true );
-    
+    setAttribute ( Qt::WA_OpaquePaintEvent, true );
+
     QFontDatabase fdb;
     // FIXME: Is there a way to tell katakana and hiragana apart here? (schwarzer)
-    QStringList KatakanaFonts(fdb.families(QFontDatabase::Japanese));
-    QStringList HiraganaFonts(fdb.families(QFontDatabase::Japanese));
+    QStringList KatakanaFonts ( fdb.families ( QFontDatabase::Japanese ) );
+    QStringList HiraganaFonts ( fdb.families ( QFontDatabase::Japanese ) );
 
     // find all fonts that have both charsets, and are smoothly scalable
-    for(QStringList::Iterator s = HiraganaFonts.begin(); s != HiraganaFonts.end(); ++s)
-        if(fdb.isSmoothlyScalable(*s) && !(KatakanaFonts.filter(*s).empty())) {
-            kDebug()<< *s;
+    for ( QStringList::Iterator s = HiraganaFonts.begin(); s != HiraganaFonts.end(); ++s )
+        if ( fdb.isSmoothlyScalable ( *s ) && ! ( KatakanaFonts.filter ( *s ).empty() ) )
+        {
+            kDebug() << *s;
             UsableFontList+=*s;
         }
 
-    srand(time(0));
+    srand ( time ( 0 ) );
     readSettings();
     blank();
 }
@@ -113,35 +115,35 @@ Kannasaver::~Kannasaver()
 }
 
 
-void Kannasaver::paintEvent( QPaintEvent *e )
+void Kannasaver::paintEvent ( QPaintEvent *e )
 {
-    Q_UNUSED( e );
-    
-    QPainter paint(this);
+    Q_UNUSED ( e );
+
+    QPainter paint ( this );
 
     int mywidth = width();
     int myheight = height();
-    bool style=(CharSetToUse==2?rand()%2:CharSetToUse);
-    int counter = static_cast<int>(rand()%(SaverMode==2?104:(SaverMode==1?74:46)));
+    bool style= ( CharSetToUse==2?rand() %2:CharSetToUse );
+    int counter = static_cast<int> ( rand() % ( SaverMode==2?104: ( SaverMode==1?74:46 ) ) );
 
-    kDebug() << "Stil: " << style << "; Char: " << kanatable[counter].pRomaji << (style?kanatable[counter].pKatakana:kanatable[counter].pHiragana);
+    kDebug() << "Stil: " << style << "; Char: " << kanatable[counter].pRomaji << ( style?kanatable[counter].pKatakana:kanatable[counter].pHiragana );
 
-    paint.setClipping(false);
-    paint.setPen( Qt::white );
-    paint.fillRect( 0, 0, mywidth, myheight, Qt::black );
-    
-    paint.setFont(*kanaFont);
-    paint.drawText(mywidth/3,myheight/3,
-                   mywidth/3,myheight/3,
-                   Qt::AlignCenter,
-                   (style ?
-                       (QString::fromUtf8(kanatable[counter].pKatakana)) :
-                       (QString::fromUtf8(kanatable[counter].pHiragana))));
+    paint.setClipping ( false );
+    paint.setPen ( Qt::white );
+    paint.fillRect ( 0, 0, mywidth, myheight, Qt::black );
 
-    paint.setFont(*romajiFont);
-    paint.drawText(3*(mywidth/4),3*(myheight/4),mywidth/4,myheight/4,
-                   Qt::AlignCenter,
-                   QString::fromUtf8(kanatable[counter].pRomaji, -1));
+    paint.setFont ( *kanaFont );
+    paint.drawText ( mywidth/3,myheight/3,
+                     mywidth/3,myheight/3,
+                     Qt::AlignCenter,
+                     ( style ?
+                       ( QString::fromUtf8 ( kanatable[counter].pKatakana ) ) :
+                       ( QString::fromUtf8 ( kanatable[counter].pHiragana ) ) ) );
+
+    paint.setFont ( *romajiFont );
+    paint.drawText ( 3* ( mywidth/4 ),3* ( myheight/4 ),mywidth/4,myheight/4,
+                     Qt::AlignCenter,
+                     QString::fromUtf8 ( kanatable[counter].pRomaji, -1 ) );
 }
 
 //! read configuration settings from config file
@@ -150,22 +152,24 @@ void Kannasaver::readSettings()
     MySettings::self()->readConfig();
     CharSetToUse=MySettings::self()->style();
     SaverMode=MySettings::self()->mode();
-    
+
 }
 
 
 void Kannasaver::blank()
 {
-    if(UsableFontList.empty()) {
-        QMessageBox mb(tr2i18n("Kannasaver"),
-                       tr2i18n("There are no usable (That is, capable of Hiragana or Katakana, and\nsoft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"."),
-                       QMessageBox::Critical, QMessageBox::Ok, Qt::NoButton, Qt::NoButton);
-        if(mb.exec()==QMessageBox::Ok) {
-            exit(1);
+    if ( UsableFontList.empty() )
+    {
+        QMessageBox mb ( tr2i18n ( "Kannasaver" ),
+                         tr2i18n ( "There are no usable (That is, capable of Hiragana or Katakana, and\nsoft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"." ),
+                         QMessageBox::Critical, QMessageBox::Ok, Qt::NoButton, Qt::NoButton );
+        if ( mb.exec() ==QMessageBox::Ok )
+        {
+            exit ( 1 );
         }
     }
 
-    kanaFont = new QFont(KanaFontName);
+    kanaFont = new QFont ( KanaFontName );
 
     // use the systemwide default font for the romaji
     romajiFont = new QFont();
@@ -173,18 +177,18 @@ void Kannasaver::blank()
     int myheight = height();
 
     // kana are shown in 1/4 of screen height
-    kanaFont->setPixelSize(myheight/4);
+    kanaFont->setPixelSize ( myheight/4 );
 
     // romaji are shown in 1/10 of screen height
-    romajiFont->setPixelSize(myheight/10);
+    romajiFont->setPixelSize ( myheight/10 );
 
     kDebug() << "Kana Font: " << kanaFont->family();
     kDebug() << "Romaji Font: " << romajiFont->family();
 
 
     QTimer *the_timer = new QTimer();
-    connect(the_timer, SIGNAL(timeout()), SLOT(update()));
-    the_timer->start(5000);
+    connect ( the_timer, SIGNAL ( timeout() ), SLOT ( update() ) );
+    the_timer->start ( 5000 );
 }
 
 

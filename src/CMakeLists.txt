@@ -5,7 +5,7 @@ find_package( KDE4 REQUIRED )
 
 include( KDE4Defaults )
 
-set( kannasaver.kss_SRCS
+set( kannasaver.kss_SRCS kanasettings.cpp
     kannasaver.cpp
     setupdlg.cpp
 )

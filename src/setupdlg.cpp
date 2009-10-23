@@ -24,7 +24,7 @@
 
 #include "setupdlg.h"
 #include "ui_setupdlgwidget.h"
-#include "settings.h"
+#include "kanasettings.h"
 
 #include <QWidget>
 
@@ -46,15 +46,13 @@ class SetupDlgWidget : public QWidget, public Ui::SetupDlgWidget
 /**
  * @brief Constructor
  */
-SetupDlg::SetupDlg( QWidget *parent ) : KConfigDialog( parent, "MySettings", MySettings::self() )
+SetupDlg::SetupDlg( QWidget *parent ) : KDialog( parent )
 {
     init();
-    MySettings::self()->readConfig();
 }
 
 SetupDlg::~SetupDlg()
 {
-    MySettings::self()->writeConfig();
     delete ui;
 }
 

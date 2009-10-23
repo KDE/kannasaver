@@ -25,14 +25,14 @@
 #ifndef SETUPDLG_H
 #define SETUPDLG_H
 
-#include <KConfigDialog>
+#include <KDialog>
 
 class SetupDlgWidget;
 
 /**
  * @brief A dialog to setup the screensaver
  */
-class SetupDlg : public KConfigDialog
+class SetupDlg : public KDialog
 {
     Q_OBJECT
     public:
