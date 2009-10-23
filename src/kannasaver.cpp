@@ -111,7 +111,7 @@ Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )
 
 Kannasaver::~Kannasaver()
 {
-    MySettings::self()->writeConfig();
+    MySettings->save();
 }
 
 
@@ -149,9 +149,8 @@ void Kannasaver::paintEvent ( QPaintEvent *e )
 //! read configuration settings from config file
 void Kannasaver::readSettings()
 {
-    MySettings::self()->readConfig();
-    CharSetToUse=MySettings::self()->style();
-    SaverMode=MySettings::self()->mode();
+    MySettings=new(KanaSettings);
+    MySettings->load();
 
 }
 
