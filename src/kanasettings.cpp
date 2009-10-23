@@ -27,6 +27,7 @@
 
 KanaSettings::KanaSettings()
 {
+  SetDefaults();
   load();
 }
 
