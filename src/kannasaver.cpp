@@ -109,6 +109,8 @@ Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )
 Kannasaver::~Kannasaver()
 {
     MySettings->save();
+    delete kanaFont;
+    delete romajiFont;
 }
 
 
@@ -156,8 +158,8 @@ void Kannasaver::blank()
 {
     if ( UsableFontList.empty() )
     {
-        QMessageBox mb ( tr2i18n ( "Kannasaver" ),
-                         tr2i18n ( "There are no usable (That is, capable of Hiragana or Katakana, and\nsoft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"." ),
+        QMessageBox mb ( i18n ( "Kannasaver" ),
+                         i18n ( "There are no usable (That is, capable of Hiragana or Katakana, and\nsoft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"." ),
                          QMessageBox::Critical, QMessageBox::Ok, Qt::NoButton, Qt::NoButton );
         if ( mb.exec() ==QMessageBox::Ok )
         {
