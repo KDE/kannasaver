@@ -30,13 +30,10 @@
 #include <klocale.h>
 
 #include <QCheckBox>
-#include <QColor>
 #include <QFontDatabase>
-#include <QLabel>
 #include <QMessageBox>
 #include <QTimer>
 #include <QPainter>
-#include <QRadioButton>
 
 #include <stdlib.h>
 #include <time.h>
