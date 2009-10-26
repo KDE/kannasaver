@@ -29,7 +29,6 @@
 #include <QString>
 #include <QStringList>
 
-class QTimer;
 class QFont;
 
 class Kannasaver : public KScreenSaver
