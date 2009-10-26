@@ -62,13 +62,11 @@ SetupDlg::~SetupDlg()
  */
 void SetupDlg::init()
 {
-//    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
+    setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Help );
     ui = new SetupDlgWidget( this );
     setMainWidget( ui );
-//    showButtonSeparator( true );
-//    enableButtonOk( true );
-//    MySettings::self()->readConfig();
-//    kcfg_mode
+    showButtonSeparator( true );
+    enableButtonOk( true );
 }
 
 
