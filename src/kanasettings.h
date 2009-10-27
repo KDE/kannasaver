@@ -23,7 +23,12 @@
 
 #include <QString>
 
-class KanaSettings
+#include <kconfigskeleton.h>
+#include <kdebug.h>
+
+
+
+class KanaSettings : public KConfigSkeleton
 {
   public:
     KanaSettings();

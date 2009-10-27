@@ -24,7 +24,23 @@
       </widget>
      </item>
      <item>
-      <widget class="KComboBox" name="kcfg_mode"/>
+      <widget class="KComboBox" name="kcfg_mode">
+       <item>
+        <property name="text">
+         <string>Basic</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Basic + Extended</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Basic + Extended + Compound</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="label">
@@ -34,7 +50,18 @@
       </widget>
      </item>
      <item>
-      <widget class="KComboBox" name="kcfg_style"/>
+      <widget class="KComboBox" name="kcfg_style">
+       <item>
+        <property name="text">
+         <string>Hiragana</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Katakana</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <widget class="KFontChooser" name="kcfg_font"/>

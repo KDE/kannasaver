@@ -25,23 +25,27 @@
 #ifndef SETUPDLG_H
 #define SETUPDLG_H
 
-#include <KDialog>
+#include <KConfigDialog>
+#include <kxmlguiwindow.h>
+#include "ui_setupdlgwidget.h"
 
 class SetupDlgWidget;
 
 /**
  * @brief A dialog to setup the screensaver
  */
-class SetupDlg : public KDialog
+class SetupDlg : public KConfigDialog
 {
     Q_OBJECT
     public:
-        explicit SetupDlg( QWidget *parent = 0 );
+        explicit SetupDlg( QWidget *parent = 0);
         ~SetupDlg();
+    void self();
     private:
         void init();
 
         SetupDlgWidget *ui;
+        Ui::SetupDlgWidget ui_setupdlgwidget;
 };
 
 #endif

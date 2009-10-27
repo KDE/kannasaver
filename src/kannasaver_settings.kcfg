@@ -19,6 +19,7 @@
     </entry>
     <entry name="font" type="Font">
       <label>The font used to display the characters.</label>
+      
     </entry>
   </group>
 </kcfg>
