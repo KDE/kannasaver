@@ -35,7 +35,7 @@ void KanaSettings::SetDefaults()
 {
   CharSetToUse=0;
   Style=0;
-  TheFont=QString();
+  TheFont.clear();
 }
 
 void KanaSettings::load()
