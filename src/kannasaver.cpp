@@ -22,6 +22,7 @@
 #include "kana.h"
 #include "settings.h"
 
+#include <kaboutdata.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kconfigdialog.h>
