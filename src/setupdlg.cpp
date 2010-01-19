@@ -66,7 +66,7 @@ SetupDlg::SetupDlg( QWidget *parent ) : KConfigDialog( parent, "preferences", My
 //User edited the configuration - update your local copies of the 
 //configuration data 
 
-    connect( this, SIGNAL(settingsChanged()), this, SLOT(updateConfiguration()) ); 
+//    connect( this, SIGNAL(settingsChanged()), this, SLOT(updateConfiguration()) ); 
  
     this->show();  
 //    init();
@@ -90,6 +90,14 @@ void SetupDlg::init()
 //    connect(dialog, SIGNAL(settingsChanged(QString)), m_view, SLOT(settingsChanged()));
 //    dialog->setAttribute( Qt::WA_DeleteOnClose );
 //    dialog->show();
+}
+
+/**
+ * @brief Reads changed settings
+ */
+
+void SetupDlg::updateConfiguration()
+{
 }
 
 

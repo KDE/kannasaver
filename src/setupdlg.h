@@ -46,6 +46,11 @@ class SetupDlg : public KConfigDialog
 
         SetupDlgWidget *ui;
         Ui::SetupDlgWidget ui_setupdlgwidget;
+    signals:
+        void settingsChanged();
+    private slots:
+        void updateConfiguration();
+        
 };
 
 #endif
