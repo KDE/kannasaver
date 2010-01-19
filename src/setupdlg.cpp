@@ -50,25 +50,25 @@ class SetupDlgWidget : public QWidget, public Ui::SetupDlgWidget
 SetupDlg::SetupDlg( QWidget *parent ) : KConfigDialog( parent, "preferences", MySettings::self() )
 {
     
-  //An instance of your dialog could be already created and could be
+//An instance of your dialog could be already created and could be
 // cached, in which case you want to display the cached dialog 
 // instead of creating another one
-// if ( KConfigDialog::showDialog( "preferences" ) )  return; 
+//   if ( KConfigDialog::showDialog( "preferences" ) )  return; 
  
 // KConfigDialog didn't find an instance of this dialog, so lets
 // create it : 
-KConfigDialog* dialog = new KConfigDialog(this, "preferences", MySettings::self()); 
+//    KConfigDialog* dialog = new KConfigDialog(this, "preferences", MySettings::self()); 
 
-SetupDlgWidget* confWdg = new SetupDlgWidget( 0 ); 
+    SetupDlgWidget* confWdg = new SetupDlgWidget( 0 ); 
  
-dialog->addPage( confWdg, i18n("General"), "preferences" ); 
+    this->addPage( confWdg, i18n("General"), "preferences" ); 
  
 //User edited the configuration - update your local copies of the 
 //configuration data 
 
-connect( dialog, SIGNAL(settingsChanged()), this, SLOT(updateConfiguration()) ); 
+    connect( this, SIGNAL(settingsChanged()), this, SLOT(updateConfiguration()) ); 
  
-dialog->show();  
+    this->show();  
 //    init();
 }
 
