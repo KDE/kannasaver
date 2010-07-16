@@ -70,7 +70,7 @@ Name[pt_BR]=Exibir na janela especificada
 Name[ru]=Показать в указанном окне
 Name[sv]=Visa i angivet fönster
 Name[tr]=Belirtilen pencerede göster
-Name[uk]=Показувати у вказаному вікні
+Name[uk]=Показати у вказаному вікні
 Name[x-test]=xxDisplay in specified windowxx
 NoDisplay=true
 
@@ -93,6 +93,6 @@ Name[pt_BR]=Exibir na janela raiz
 Name[ru]=Показать в корневом окне
 Name[sv]=Visa i rotfönster
 Name[tr]=Kök pencerede göster
-Name[uk]=Показувати у кореневому вікні
+Name[uk]=Показати у кореневому вікні
 Name[x-test]=xxDisplay in root windowxx
 NoDisplay=true
