@@ -28,8 +28,8 @@ typedef struct {
 
 
 
-// roumaji -> kana, all chars. 0-45 is basic, 46-73 is extended, 74-103end is compound.
 
+// romaji -> kana, all chars. 0-45 is basic, 46-73 is extended, 74-103end is compound.
 static transInfo kanatable[] =
 {
     { "a",    "あ",    "ア" },
