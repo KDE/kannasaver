@@ -49,26 +49,26 @@ class SetupDlgWidget : public QWidget, public Ui::SetupDlgWidget
  */
 SetupDlg::SetupDlg( QWidget *parent ) : KConfigDialog( parent, "preferences", MySettings::self() )
 {
-    
+
 //An instance of your dialog could be already created and could be
-// cached, in which case you want to display the cached dialog 
+// cached, in which case you want to display the cached dialog
 // instead of creating another one
-//   if ( KConfigDialog::showDialog( "preferences" ) )  return; 
- 
+//   if ( KConfigDialog::showDialog( "preferences" ) )  return;
+
 // KConfigDialog didn't find an instance of this dialog, so lets
-// create it : 
-//    KConfigDialog* dialog = new KConfigDialog(this, "preferences", MySettings::self()); 
+// create it :
+//    KConfigDialog* dialog = new KConfigDialog(this, "preferences", MySettings::self());
 
-    SetupDlgWidget* confWdg = new SetupDlgWidget( 0 ); 
- 
-    this->addPage( confWdg, i18n("General"), "preferences" ); 
- 
-//User edited the configuration - update your local copies of the 
-//configuration data 
+    SetupDlgWidget* confWdg = new SetupDlgWidget( 0 );
 
-//    connect( this, SIGNAL(settingsChanged()), this, SLOT(updateConfiguration()) ); 
- 
-    this->show();  
+    this->addPage( confWdg, i18n("General"), "preferences" );
+
+//User edited the configuration - update your local copies of the
+//configuration data
+
+//    connect( this, SIGNAL(settingsChanged()), this, SLOT(updateConfiguration()) );
+
+    this->show();
 //    init();
 }
 
@@ -99,7 +99,6 @@ void SetupDlg::init()
 void SetupDlg::updateConfiguration()
 {
 }
-
 
 // vim: expandtab:tabstop=4:shiftwidth=4
 // kate: space-indent on; indent-width 4

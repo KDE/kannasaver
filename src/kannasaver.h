@@ -40,22 +40,23 @@ class Kannasaver : public KScreenSaver
         virtual void paintEvent( QPaintEvent *e );
 
     private:
+        /** read configuration settings from config file */
         void readSettings();
         void blank();
         int SaverMode;
         int CharSetToUse;
         QString KanaFontName;
+        // still needed with Qt4?
         QStringList UsableFontList;
 
     protected:
         QFont *kanaFont;
         QFont *romajiFont;
-        
+
         KanaSettings* MySettings;
 };
 
 #endif
-
 
 // vim: expandtab:tabstop=4:shiftwidth=4
 // kate: space-indent on; indent-width 4

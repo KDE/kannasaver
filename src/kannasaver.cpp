@@ -147,12 +147,10 @@ void Kannasaver::paintEvent ( QPaintEvent *e )
                      QString::fromUtf8 ( kanatable[counter].pRomaji, -1 ) );
 }
 
-//! read configuration settings from config file
 void Kannasaver::readSettings()
 {
     MySettings=new(KanaSettings);
     MySettings->load();
-
 }
 
 
@@ -185,14 +183,10 @@ void Kannasaver::blank()
     kDebug() << "Kana Font: " << kanaFont->family();
     kDebug() << "Romaji Font: " << romajiFont->family();
 
-
     QTimer *the_timer = new QTimer();
     connect ( the_timer, SIGNAL ( timeout() ), SLOT ( update() ) );
     the_timer->start ( 5000 );
 }
-
-
-
 
 // vim: expandtab:tabstop=4:shiftwidth=4
 // kate: space-indent on; indent-width 4

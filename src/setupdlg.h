@@ -50,7 +50,6 @@ class SetupDlg : public KConfigDialog
         void settingsChanged();
     private slots:
         void updateConfiguration();
-        
 };
 
 #endif

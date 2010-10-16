@@ -26,9 +26,6 @@ typedef struct {
     const char    * pKatakana;
 } transInfo;
 
-
-
-
 // romaji -> kana, all chars. 0-45 is basic, 46-73 is extended, 74-103end is compound.
 static transInfo kanatable[] =
 {
@@ -139,7 +136,6 @@ static transInfo kanatable[] =
 };
 
 #endif
-
 
 // vim: expandtab:tabstop=4:shiftwidth=4
 // kate: space-indent on; indent-width 4

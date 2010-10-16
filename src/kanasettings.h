@@ -27,7 +27,6 @@
 #include <kdebug.h>
 
 
-
 class KanaSettings : public KConfigSkeleton
 {
   public:
