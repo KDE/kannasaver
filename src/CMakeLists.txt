@@ -21,8 +21,6 @@ kde4_add_kcfg_files( kannasaver.kss_SRCS settings.kcfgc )
 add_definitions( ${QT_DEFINITIONS} ${KDE4_DEFINITIONS} )
 
 
-remove_definitions( -DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT )
-
 include_directories( ${KDE4_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}
            ${CMAKE_CURRENT_BINARY_DIR} ${QT_INCLUDE_DIR} )
 

@@ -7,7 +7,6 @@ include( KDE4Defaults )
 include( MacroLibrary )
 
 add_definitions( ${QT_DEFINITIONS} ${KDE4_DEFINITIONS} )
-remove_definitions( -DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT )
 
 set ( kscreensaver_FIND_REQUIRED TRUE )
 
