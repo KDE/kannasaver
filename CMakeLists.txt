@@ -1,7 +1,5 @@
 project( kannasaver.kss )
 
-cmake_minimum_required( VERSION 2.6.0 FATAL_ERROR )
-
 find_package( KDE4 REQUIRED )
 include( KDE4Defaults )
 include( MacroLibrary )
