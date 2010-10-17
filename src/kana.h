@@ -27,7 +27,7 @@ typedef struct {
 } transInfo;
 
 // romaji -> kana, all chars. 0-45 is basic, 46-73 is extended, 74-103end is compound.
-static transInfo kanatable[] =
+static const transInfo kanatable[] =
 {
     { "a",    "あ",    "ア" },
     { "i",    "い",    "イ" },
