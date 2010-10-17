@@ -27,10 +27,7 @@ include_directories( ${KDE4_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}
 kde4_add_executable( kannasaver.kss ${kannasaver.kss_SRCS} )
 
 target_link_libraries( kannasaver.kss
-    ${QT_AND_KDECORE_LIBS}
-    ${QT_LIBRARIES}
     ${KDE4_KDEUI_LIBS}
-    ${KDE4_KIO_LIBS}
     ${KSCREENSAVER_LIBRARY}
 )
 
