@@ -20,7 +20,7 @@ target_link_libraries( kannasaver.kss
     ${KSCREENSAVER_LIBRARY}
 )
 
-install( TARGETS kannasaver.kss DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install( TARGETS kannasaver.kss ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( PROGRAMS kannasaver.desktop DESTINATION ${SERVICES_INSTALL_DIR}/ScreenSavers )
 install( FILES kannasaver_settings.kcfg    DESTINATION ${KCFG_INSTALL_DIR} )
 #install( FILES kannasaverui.rc    DESTINATION ${DATA_INSTALL_DIR}/kannasaver )
