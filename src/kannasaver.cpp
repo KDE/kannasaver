@@ -37,7 +37,6 @@
 #include <QPainter>
 
 #include <stdlib.h>
-#include <iostream>
 #include <time.h>
 
 
@@ -127,7 +126,7 @@ void Kannasaver::paintEvent ( QPaintEvent *e )
     SaverMode = MySettings->Style;
     int counter = static_cast<int> ( rand() % ( (SaverMode==2)?104: ( (SaverMode==1)?74:46 ) ) );
 
-    std::cerr << "Stil: " << ( CharSetToUse==1 ) << "; Range: " << SaverMode << "; Char: " << kanatable[counter].pRomaji << ( ( CharSetToUse==1 )?kanatable[counter].pKatakana:kanatable[counter].pHiragana ) << std::endl;
+    kDebug() << "Stil: " << ( CharSetToUse==1 ) << "; Range: " << SaverMode << "; Char: " << kanatable[counter].pRomaji << ( ( CharSetToUse==1 )?kanatable[counter].pKatakana:kanatable[counter].pHiragana );
 
     paint.setClipping ( false );
     paint.setPen ( Qt::white );
