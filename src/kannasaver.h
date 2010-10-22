@@ -20,35 +20,19 @@
 #ifndef KANNASAVER_H
 #define KANNASAVER_H
 
-#include "setupdlg.h"
-
 #include <kscreensaver.h>
 
 #include <QPaintEvent>
-#include <QString>
-#include <QStringList>
 
-class QFont;
 
 class Kannasaver : public KScreenSaver
 {
     Q_OBJECT
     public:
         Kannasaver( WId drawable );
-        virtual ~Kannasaver();
         
     protected:
         virtual void paintEvent( QPaintEvent *e );
-
-    private:
-        void blank();
-        int SaverMode;
-        int CharSetToUse;
-        QString KanaFontName;
-
-    protected:
-        QFont *kanaFont;
-        QFont *romajiFont;
 };
 
 #endif

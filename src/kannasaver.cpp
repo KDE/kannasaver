@@ -45,13 +45,9 @@ Kannasaver::Kannasaver( WId id ) : KScreenSaver ( id )
 
     srand ( time ( 0 ) );
 
-    blank();
-}
-
-Kannasaver::~Kannasaver()
-{
-    delete kanaFont;
-    delete romajiFont;
+    QTimer *timer = new QTimer( this );
+    connect( timer, SIGNAL ( timeout() ), SLOT ( update() ) );
+    timer->start( 5000 );
 }
 
 
@@ -59,56 +55,46 @@ void Kannasaver::paintEvent( QPaintEvent *e )
 {
     Q_UNUSED ( e );
 
-    QPainter paint ( this );
-
     int mywidth = width();
     int myheight = height();
-    SaverMode = Preferences::style();
-    int counter = static_cast<int> ( rand() % ( (SaverMode==2)?104: ( (SaverMode==1)?74:46 ) ) );
 
-    kDebug() << "Stil: " << ( CharSetToUse==1 ) << "; Range: " << SaverMode << "; Char: " << kanatable[counter].pRomaji << ( ( CharSetToUse==1 )?kanatable[counter].pKatakana:kanatable[counter].pHiragana );
+    int randomIndex = 0;
+    switch( Preferences::mode() ) {
+        case Preferences::EnumMode::Basic:
+            randomIndex = rand() % 46;
+            break;
+        case Preferences::EnumMode::BasicExtended:
+            randomIndex = rand() % 74;
+            break;
+        case Preferences::EnumMode::BasicExtendedCompound:
+            randomIndex = rand() % 104;
+            break;
+    }
 
+    QPainter paint( this );
     paint.setClipping ( false );
     paint.setPen ( Qt::white );
     paint.fillRect ( 0, 0, mywidth, myheight, Qt::black );
 
-    paint.setFont ( *kanaFont );
-    paint.drawText ( mywidth/3,myheight/3,
-                     mywidth/3,myheight/3,
+    QFont kanaFont;
+    kanaFont.setPixelSize( height() / 4 );
+    paint.setFont ( kanaFont );
+    paint.drawText ( mywidth/3, myheight/3,
+                     mywidth/3, myheight/3,
                      Qt::AlignCenter,
-                     ( ( CharSetToUse==1 ) ?
-                       ( QString::fromUtf8 ( kanatable[counter].pKatakana ) ) :
-                       ( QString::fromUtf8 ( kanatable[counter].pHiragana ) ) ) );
+                     Preferences::style() == Preferences::EnumStyle::Hiragana
+                       ? QString::fromUtf8( kanatable[ randomIndex ].pKatakana )
+                       : QString::fromUtf8( kanatable[ randomIndex ].pHiragana )
+                   );
 
-    paint.setFont ( *romajiFont );
+    QFont romajiFont;
+    romajiFont.setPixelSize( height() / 10 );
+    paint.setFont ( romajiFont );
     paint.drawText ( 3* ( mywidth/4 ),3* ( myheight/4 ),mywidth/4,myheight/4,
                      Qt::AlignCenter,
-                     QString::fromUtf8 ( kanatable[counter].pRomaji, -1 ) );
+                     QString::fromUtf8 ( kanatable[ randomIndex ].pRomaji, -1 ) );
 }
 
-
-void Kannasaver::blank()
-{
-    kanaFont = new QFont ( KanaFontName );
-
-    // use the systemwide default font for the romaji
-    romajiFont = new QFont();
-
-    int myheight = height();
-
-    // kana are shown in 1/4 of screen height
-    kanaFont->setPixelSize ( myheight/4 );
-
-    // romaji are shown in 1/10 of screen height
-    romajiFont->setPixelSize ( myheight/10 );
-
-    kDebug() << "Kana Font: " << kanaFont->family();
-    kDebug() << "Romaji Font: " << romajiFont->family();
-
-    QTimer *the_timer = new QTimer();
-    connect ( the_timer, SIGNAL ( timeout() ), SLOT ( update() ) );
-    the_timer->start ( 5000 );
-}
 
 
 // vim: expandtab:tabstop=4:shiftwidth=4
