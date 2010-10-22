@@ -4,6 +4,8 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="kannasaverrc"/>
+  <include>kglobalsettings.h</include>
+
   <group name="kannasaver">
     <entry name="mode" type="Enum">
       <label>How many characters should be shown.</label>
@@ -34,10 +36,12 @@
       <default>0,0,0</default>
     </entry>
 
-    <entry name="font" type="Font">
-      <label>The font used to display the characters.</label>     
-    </entry>
-
+    <entry name="font" type="String">
+       <label>The font used to display the characters.</label>
+       <default>Arial</default>
+       <default code="true">KGlobalSettings::generalFont().family()</default>
+     </entry>
+     
     <entry name="fontSize" type="Int">
       <label></label>
       <default>10</default>
@@ -50,8 +54,9 @@
       <default>255,255,255</default>
     </entry>
 
-    <entry name="kanaFont" type="Font">
+    <entry name="kanaFont" type="String">
       <label></label>
+      <default code="true">KGlobalSettings::generalFont().family()</default>
     </entry>
 
     <entry name="kanaFontSize" type="Int">

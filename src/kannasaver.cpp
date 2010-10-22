@@ -28,24 +28,252 @@
 #include <ctime>
 
 
-Kannasaver::Kannasaver( WId id ) : KScreenSaver ( id )
+struct Kannasaver::Private
 {
+    Private()
+      : timerSeconds( 0 ),
+        mode( 0 ),
+        style( 0 ),
+        fontSize( 0 ),
+        kanaFontSize( 0 )
+    {
+        std::srand( std::time( 0 ) );
+    }
+
+    QTimer timer;
+    int timerSeconds;
+    int mode;
+    int style;
+    QColor backgroundColor;
+
+    QString fontName;
+    int fontSize;
+    QColor fontColor;
+
+    QString kanaFontName;
+    int kanaFontSize;
+    QColor kanaFontColor;
+
+    QPair<QString, QString> sign;
+};
+
+
+
+Kannasaver::Kannasaver(QWidget *parent)
+  : KScreenSaver(),
+    d( new Kannasaver::Private )
+{
+    Q_UNUSED( parent );
+
     setAttribute ( Qt::WA_OpaquePaintEvent, true );
 
-    std::srand( std::time( 0 ) );
+    connect( &(d->timer), SIGNAL ( timeout() ), SLOT ( updateSign() ) );
 
-    QTimer *timer = new QTimer( this );
-    connect( timer, SIGNAL ( timeout() ), SLOT ( update() ) );
-    timer->start( Preferences::timer() * 1000 );
+    loadSettings();
 }
 
 
-void Kannasaver::paintEvent( QPaintEvent *e )
+Kannasaver::Kannasaver(WId id)
+  : KScreenSaver( id ),
+    d( new Kannasaver::Private )
 {
-    Q_UNUSED( e );
+    setAttribute ( Qt::WA_OpaquePaintEvent, true );
 
+    connect( &(d->timer), SIGNAL ( timeout() ), SLOT ( updateSign() ) );
+
+    loadSettings();
+}
+
+
+Kannasaver::~Kannasaver()
+{
+    delete d;
+}
+
+
+void Kannasaver::loadSettings()
+{
+    d->timerSeconds = Preferences::timer();
+    d->mode = Preferences::mode();
+    d->style = Preferences::style();
+    d->backgroundColor = Preferences::backgroundColor();
+    d->fontName = Preferences::font();
+    d->fontSize = Preferences::fontSize();
+    d->fontColor = Preferences::fontColor();
+    d->kanaFontName = Preferences::kanaFont();
+    d->kanaFontSize = Preferences::kanaFontSize();
+    d->kanaFontColor = Preferences::kanaFontColor();
+
+    d->timer.start( d->timerSeconds * 1000 );
+
+    updateSign();
+}
+
+
+int Kannasaver::timerSeconds() const
+{
+    return d->timerSeconds;
+}
+
+
+void Kannasaver::setTimerSeconds(int value)
+{
+    d->timerSeconds = qBound( 1, value, 60 );
+
+    d->timer.start( d->timerSeconds * 1000 );
+}
+
+
+int Kannasaver::mode() const
+{
+    return d->mode;
+}
+
+
+void Kannasaver::setMode(int value)
+{
+    d->mode = value;
+    updateSign();
+}
+
+
+int Kannasaver::style() const
+{
+    return d->style;
+}
+
+
+void Kannasaver::setStyle(int value)
+{
+    d->style = value;
+    updateSign();
+}
+
+
+QColor Kannasaver::backgroundColor() const
+{
+    return d->backgroundColor;
+}
+
+
+void Kannasaver::setBackgroundColor(const QColor &color)
+{
+    d->backgroundColor = color;
+    update();
+}
+
+
+QString Kannasaver::fontName() const
+{
+    return d->fontName;
+}
+
+
+void Kannasaver::setFontName(const QString &name)
+{
+    d->fontName = name;
+    update();
+}
+
+
+int Kannasaver::fontSize() const
+{
+    return d->fontSize;
+}
+
+
+void Kannasaver::setFontSize(int value)
+{
+    d->fontSize = qBound( 0, value, 100 );
+    update();
+}
+
+
+QColor Kannasaver::fontColor() const
+{
+    return d->fontColor;
+}
+
+
+void Kannasaver::setFontColor(const QColor &color)
+{
+    d->fontColor = color;
+    update();
+}
+
+
+QString Kannasaver::kanaFontName() const
+{
+    return d->kanaFontName;
+}
+
+
+void Kannasaver::setKanaFontName(const QString &name)
+{
+    d->kanaFontName = name;
+    update();
+}
+
+
+int Kannasaver::kanaFontSize() const
+{
+    return d->kanaFontSize;
+}
+
+
+void Kannasaver::setKanaFontSize(int value)
+{
+    d->kanaFontSize = qBound( 0, value, 100 );
+    update();
+}
+
+
+QColor Kannasaver::kanaFontColor() const
+{
+    return d->kanaFontColor;
+}
+
+
+void Kannasaver::setKanaFontColor(const QColor &color)
+{
+    d->kanaFontColor = color;
+    update();
+}
+
+
+void Kannasaver::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED( event );
+
+    QPainter paint( this );
+    paint.setClipping ( false );
+    paint.fillRect ( rect(), backgroundColor() );
+
+    const double coefficient = qMin( width(), height() ) / 100.0;
+
+    QFont kanaFont( kanaFontName() );
+    kanaFont.setPixelSize( kanaFontSize() * coefficient );
+    paint.setFont( kanaFont );
+
+    paint.setPen( kanaFontColor() );
+    paint.drawText( rect(), Qt::AlignCenter, d->sign.first );
+
+    QFont romajiFont( fontName() );
+    romajiFont.setPixelSize( fontSize() * coefficient );
+    paint.setFont( romajiFont );
+
+    const int border = 5 * coefficient;
+    const QRect borderedRect = rect().adjusted( border, border, -border, -border );
+
+    paint.setPen( fontColor() );
+    paint.drawText( borderedRect, Qt::AlignBottom | Qt::AlignRight, d->sign.second );
+}
+
+
+void Kannasaver::updateSign()
+{
     int randomIndex = 0;
-    switch( Preferences::mode() ) {
+    switch( mode() ) {
         case Preferences::EnumMode::Basic:
             randomIndex = std::rand() % 46;
             break;
@@ -57,35 +285,14 @@ void Kannasaver::paintEvent( QPaintEvent *e )
             break;
     }
 
-    QPainter paint( this );
-    paint.setClipping ( false );
-    paint.fillRect ( rect(), Preferences::backgroundColor() );
+    d->sign.first = style() == Preferences::EnumStyle::Hiragana
+                   ? QString::fromUtf8( kanatable[ randomIndex ].pKatakana )
+                   : QString::fromUtf8( kanatable[ randomIndex ].pHiragana );
 
-    const double coefficient = qMin( width(), height() ) / 100.0;
+    d->sign.second = QString::fromUtf8( kanatable[ randomIndex ].pRomaji, -1 );
 
-    QFont kanaFont( Preferences::kanaFont() );
-    kanaFont.setPixelSize( Preferences::kanaFontSize() * coefficient );
-    paint.setFont( kanaFont );
-
-    paint.setPen( Preferences::kanaFontColor() );
-    paint.drawText( rect(), Qt::AlignCenter,
-                    Preferences::style() == Preferences::EnumStyle::Hiragana
-                      ? QString::fromUtf8( kanatable[ randomIndex ].pKatakana )
-                      : QString::fromUtf8( kanatable[ randomIndex ].pHiragana )
-                  );
-
-    QFont romajiFont( Preferences::font() );
-    romajiFont.setPixelSize( Preferences::fontSize() * coefficient );
-    paint.setFont( romajiFont );
-
-    const int border = 5 * coefficient;
-    paint.setPen( Preferences::fontColor() );
-    paint.drawText( rect().adjusted( border, border, -border, -border ),
-                    Qt::AlignBottom | Qt::AlignRight,
-                    QString::fromUtf8 ( kanatable[ randomIndex ].pRomaji, -1 )
-                  );
+    update();
 }
-
 
 
 // vim: expandtab:tabstop=4:shiftwidth=4

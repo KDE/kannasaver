@@ -1,12 +1,12 @@
 
 set( kannasaver.kss_SRCS
     kannasaver.cpp
-    setupdlg.cpp
+    settingswidget.cpp
     main.cpp
 )
 
 kde4_add_ui_files( kannasaver.kss_SRCS
-    setupdlgwidget.ui
+    settingswidget.ui
 )
 
 kde4_add_kcfg_files( kannasaver.kss_SRCS preferences.kcfgc )

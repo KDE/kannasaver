@@ -27,10 +27,52 @@ class Kannasaver : public KScreenSaver
 {
     Q_OBJECT
     public:
+        Kannasaver(QWidget *parent = 0);
         Kannasaver(WId drawable);
+        ~Kannasaver();
+
+    public slots:
+        void loadSettings();
+
+        int timerSeconds() const;
+        void setTimerSeconds(int value);
+
+        int mode() const;
+        void setMode(int value);
+
+        int style() const;
+        void setStyle(int value);
+
+        QColor backgroundColor() const;
+        void setBackgroundColor(const QColor &color);
+
+        QString fontName() const;
+        void setFontName(const QString &name);
+
+        int fontSize() const;
+        void setFontSize(int value);
+
+        QColor fontColor() const;
+        void setFontColor(const QColor &color);
+
+        QString kanaFontName() const;
+        void setKanaFontName(const QString &name);
+
+        int kanaFontSize() const;
+        void setKanaFontSize(int value);
+
+        QColor kanaFontColor() const;
+        void setKanaFontColor(const QColor &color);
 
     protected:
-        virtual void paintEvent(QPaintEvent *e);
+        void paintEvent(QPaintEvent *e);
+
+    private slots:
+        void updateSign();
+
+    private:
+        class Private;
+        Private * const d;
 };
 
 #endif

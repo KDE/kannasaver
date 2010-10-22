@@ -17,56 +17,71 @@
  ***************************************************************************/
 
 #include "kannasaver.h"
-#include "setupdlg.h"
+#include "preferences.h"
+#include "settingswidget.h"
 
 #include <kaboutdata.h>
+#include <KConfigDialog>
 
 
 class KannasaverInterface : public KScreenSaverInterface
 {
     public:
-        KannasaverInterface()
-        {
-            m_about = new KAboutData ( "kannasaver.kss", 0,
-                                ki18n ( "Kannasaver" ), "1.2-dev",
-                                ki18n ( "A screensaver that shows Japanese characters." ),
-                                KAboutData::License_GPL,
-                                ki18n ( "Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer" ),
-                                KLocalizedString(),
-                                "foo" );
-            m_about->addAuthor ( ki18n ( "Mathias Homann" ),
-                                    ki18n ( "Original author of Kannasaver." ),
-                                    "Mathias.Homann@eregion.de" );
-            m_about->addAuthor ( ki18n ( "Frederik Schwarzer" ),
-                                    ki18n ( "Port to KDE4" ),
-                                    "schwarzerf@gmail.com" );
-        }
+        KannasaverInterface();
+        ~KannasaverInterface();
 
-        ~KannasaverInterface()
-        {
-            delete m_about;
-        }
-        
-        
-        virtual KAboutData *aboutData()
-        {
-            return m_about;
-        }
+        KAboutData *aboutData();
+        KScreenSaver *create(WId id);
 
-        virtual KScreenSaver *create(WId id)
-        {
-            return new Kannasaver ( id );
-        }
+        QDialog *setup();
 
-        virtual QDialog *setup()
-        {
-            return new SetupDlg();
-        }
-        
     private:
         KAboutData* m_about;
 
 };
+
+
+KannasaverInterface::KannasaverInterface()
+  : m_about( 0 )
+{
+    m_about = new KAboutData( "kannasaver.kss", 0, ki18n( "Kannasaver" ), "1.2-dev" );
+
+    m_about->setShortDescription( ki18n( "A screensaver that shows Japanese characters." ) );
+    m_about->setLicense( KAboutData::License_GPL );
+    m_about->setCopyrightStatement( ki18n( "Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer" ) );
+
+    m_about->addAuthor( ki18n( "Mathias Homann" ), ki18n( "Original author of Kannasaver." ), "Mathias.Homann@eregion.de" );
+    m_about->addAuthor( ki18n( "Frederik Schwarzer" ), ki18n( "Port to KDE4" ),"schwarzerf@gmail.com" );
+}
+
+
+KannasaverInterface::~KannasaverInterface()
+{
+    delete m_about;
+}
+
+
+KAboutData* KannasaverInterface::aboutData()
+{
+    return m_about;
+}
+
+
+KScreenSaver* KannasaverInterface::create(WId id)
+{
+    return new Kannasaver( id );
+}
+
+
+QDialog* KannasaverInterface::setup()
+{
+    KConfigDialog *dialog = new KConfigDialog( 0, "SettingsDialog", Preferences::self() );
+    dialog->setFaceType( KPageDialog::Plain );
+    dialog->addPage( new SettingsWidget, i18n( "General" ) );
+
+    return dialog;
+}
+
 
 
 int main( int argc, char *argv[] )
