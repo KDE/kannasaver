@@ -22,17 +22,15 @@
 
 #include <kscreensaver.h>
 
-#include <QPaintEvent>
-
 
 class Kannasaver : public KScreenSaver
 {
     Q_OBJECT
     public:
-        Kannasaver( WId drawable );
-        
+        Kannasaver(WId drawable);
+
     protected:
-        virtual void paintEvent( QPaintEvent *e );
+        virtual void paintEvent(QPaintEvent *e);
 };
 
 #endif

@@ -18,32 +18,21 @@
  ***************************************************************************/
 
 #include "kannasaver.h"
-#include "setupdlg.h"
 #include "kana.h"
 #include "preferences.h"
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kconfigdialog.h>
-#include <kdebug.h>
-#include <kglobal.h>
-#include <klocale.h>
-
-#include <QCheckBox>
-#include <QFontDatabase>
-#include <QMessageBox>
 #include <QTimer>
 #include <QPainter>
 
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
 
 
 Kannasaver::Kannasaver( WId id ) : KScreenSaver ( id )
 {
     setAttribute ( Qt::WA_OpaquePaintEvent, true );
 
-    srand ( time ( 0 ) );
+    std::srand( std::time( 0 ) );
 
     QTimer *timer = new QTimer( this );
     connect( timer, SIGNAL ( timeout() ), SLOT ( update() ) );
@@ -61,13 +50,13 @@ void Kannasaver::paintEvent( QPaintEvent *e )
     int randomIndex = 0;
     switch( Preferences::mode() ) {
         case Preferences::EnumMode::Basic:
-            randomIndex = rand() % 46;
+            randomIndex = std::rand() % 46;
             break;
         case Preferences::EnumMode::BasicExtended:
-            randomIndex = rand() % 74;
+            randomIndex = std::rand() % 74;
             break;
         case Preferences::EnumMode::BasicExtendedCompound:
-            randomIndex = rand() % 104;
+            randomIndex = std::rand() % 104;
             break;
     }
 
