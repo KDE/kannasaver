@@ -43,19 +43,6 @@ Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )
 {
     setAttribute ( Qt::WA_OpaquePaintEvent, true );
 
-    QFontDatabase fdb;
-    // FIXME: Is there a way to tell katakana and hiragana apart here? (schwarzer)
-    QStringList KatakanaFonts ( fdb.families ( QFontDatabase::Japanese ) );
-    QStringList HiraganaFonts ( fdb.families ( QFontDatabase::Japanese ) );
-
-    // find all fonts that have both charsets, and are smoothly scalable
-    for ( QStringList::Iterator s = HiraganaFonts.begin(); s != HiraganaFonts.end(); ++s )
-        if ( fdb.isSmoothlyScalable ( *s ) && ! ( KatakanaFonts.filter ( *s ).empty() ) )
-        {
-            kDebug() << *s;
-            UsableFontList+=*s;
-        }
-
     srand ( time ( 0 ) );
     readSettings();
     blank();
@@ -106,17 +93,6 @@ void Kannasaver::readSettings()
 
 void Kannasaver::blank()
 {
-    if ( UsableFontList.empty() )
-    {
-        QMessageBox mb ( i18n ( "Kannasaver" ),
-                         i18n ( "There are no usable (That is, capable of Hiragana or Katakana, and\nsoft-scalable) fonts on your system. You must get and install\nsome before using this screensaver. SuSE comes with several\nsuitable fonts, you just have to install them in yast. Users\nof other Linux distributions should google for one of the following:\n\"Kochi Gothic\" or \"Baekmuk Gulim\"." ),
-                         QMessageBox::Critical, QMessageBox::Ok, Qt::NoButton, Qt::NoButton );
-        if ( mb.exec() ==QMessageBox::Ok )
-        {
-            exit ( 1 );
-        }
-    }
-
     kanaFont = new QFont ( KanaFontName );
 
     // use the systemwide default font for the romaji

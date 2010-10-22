@@ -45,8 +45,6 @@ class Kannasaver : public KScreenSaver
         int SaverMode;
         int CharSetToUse;
         QString KanaFontName;
-        // still needed with Qt4?
-        QStringList UsableFontList;
 
     protected:
         QFont *kanaFont;
