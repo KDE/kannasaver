@@ -22,7 +22,6 @@
 #include "kana.h"
 #include "preferences.h"
 
-#include <kaboutdata.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kconfigdialog.h>
@@ -38,51 +37,6 @@
 
 #include <stdlib.h>
 #include <time.h>
-
-
-static KAboutData *s_aboutData = 0;
-
-class KannasaverInterface : public KScreenSaverInterface
-{
-public:
-    virtual KAboutData *aboutData()
-    {
-        return s_aboutData;
-    }
-
-    /** function to create screen saver object */
-    virtual KScreenSaver *create ( WId id )
-    {
-        return new Kannasaver ( id );
-    }
-
-    /** function to create setup dialog for screen saver */
-    virtual QDialog *setup()
-    {
-        return new SetupDlg();
-    }
-};
-
-
-int main ( int argc, char *argv[] )
-{
-    s_aboutData = new KAboutData ( "kannasaver.kss", 0,
-                                   ki18n ( "Kannasaver" ), "1.2-dev",
-                                   ki18n ( "A screensaver that shows Japanese characters." ),
-                                   KAboutData::License_GPL,
-                                   ki18n ( "Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer" ),
-                                   KLocalizedString(),
-                                   "foo" );
-    s_aboutData->addAuthor ( ki18n ( "Mathias Homann" ),
-                             ki18n ( "Original author of Kannasaver." ),
-                             "Mathias.Homann@eregion.de" );
-    s_aboutData->addAuthor ( ki18n ( "Frederik Schwarzer" ),
-                             ki18n ( "Port to KDE4" ),
-                             "schwarzerf@gmail.com" );
-
-    KannasaverInterface kss;
-    return kScreenSaverMain ( argc, argv, kss );
-}
 
 
 Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )

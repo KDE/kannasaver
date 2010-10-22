@@ -2,6 +2,7 @@
 set( kannasaver.kss_SRCS
     kannasaver.cpp
     setupdlg.cpp
+    main.cpp
 )
 
 kde4_add_ui_files( kannasaver.kss_SRCS
