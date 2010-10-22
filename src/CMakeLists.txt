@@ -8,7 +8,7 @@ kde4_add_ui_files( kannasaver.kss_SRCS
     setupdlgwidget.ui
 )
 
-kde4_add_kcfg_files( kannasaver.kss_SRCS settings.kcfgc )
+kde4_add_kcfg_files( kannasaver.kss_SRCS preferences.kcfgc )
 
 include_directories( ${KDE4_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR}
            ${CMAKE_CURRENT_BINARY_DIR} ${QT_INCLUDE_DIR} )
@@ -22,6 +22,6 @@ target_link_libraries( kannasaver.kss
 
 install( TARGETS kannasaver.kss ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( PROGRAMS kannasaver.desktop DESTINATION ${SERVICES_INSTALL_DIR}/ScreenSavers )
-install( FILES kannasaver_settings.kcfg    DESTINATION ${KCFG_INSTALL_DIR} )
+install( FILES kannasaver.kcfg    DESTINATION ${KCFG_INSTALL_DIR} )
 #install( FILES kannasaverui.rc    DESTINATION ${DATA_INSTALL_DIR}/kannasaver )
 

@@ -24,7 +24,7 @@
 
 #include "setupdlg.h"
 #include "ui_setupdlgwidget.h"
-#include "settings.h"
+#include "preferences.h"
 
 #include <QWidget>
 #include <KConfigDialog>
@@ -47,7 +47,7 @@ class SetupDlgWidget : public QWidget, public Ui::SetupDlgWidget
 /**
  * @brief Constructor
  */
-SetupDlg::SetupDlg( QWidget *parent ) : KConfigDialog( parent, "preferences", MySettings::self() )
+SetupDlg::SetupDlg( QWidget *parent ) : KConfigDialog( parent, "preferences", Preferences::self() )
 {
 
 //An instance of your dialog could be already created and could be

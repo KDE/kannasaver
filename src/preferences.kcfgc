@@ -1,0 +1,5 @@
+File=kannasaver.kcfg
+ClassName=Preferences
+Singleton=true
+Mutators=true
+
