@@ -36,6 +36,8 @@ class Kannasaver : public KScreenSaver
     public:
         Kannasaver( WId drawable );
         virtual ~Kannasaver();
+        
+    protected:
         virtual void paintEvent( QPaintEvent *e );
 
     private:

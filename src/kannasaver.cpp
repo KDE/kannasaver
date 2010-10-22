@@ -39,7 +39,7 @@
 #include <time.h>
 
 
-Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )
+Kannasaver::Kannasaver( WId id ) : KScreenSaver ( id )
 {
     setAttribute ( Qt::WA_OpaquePaintEvent, true );
 
@@ -55,7 +55,7 @@ Kannasaver::~Kannasaver()
 }
 
 
-void Kannasaver::paintEvent ( QPaintEvent *e )
+void Kannasaver::paintEvent( QPaintEvent *e )
 {
     Q_UNUSED ( e );
 
@@ -109,6 +109,7 @@ void Kannasaver::blank()
     connect ( the_timer, SIGNAL ( timeout() ), SLOT ( update() ) );
     the_timer->start ( 5000 );
 }
+
 
 // vim: expandtab:tabstop=4:shiftwidth=4
 // kate: space-indent on; indent-width 4
