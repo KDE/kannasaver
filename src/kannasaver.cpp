@@ -44,7 +44,7 @@ Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )
     setAttribute ( Qt::WA_OpaquePaintEvent, true );
 
     srand ( time ( 0 ) );
-    readSettings();
+
     blank();
 }
 
@@ -84,10 +84,6 @@ void Kannasaver::paintEvent ( QPaintEvent *e )
     paint.drawText ( 3* ( mywidth/4 ),3* ( myheight/4 ),mywidth/4,myheight/4,
                      Qt::AlignCenter,
                      QString::fromUtf8 ( kanatable[counter].pRomaji, -1 ) );
-}
-
-void Kannasaver::readSettings()
-{
 }
 
 

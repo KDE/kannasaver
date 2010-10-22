@@ -39,8 +39,6 @@ class Kannasaver : public KScreenSaver
         virtual void paintEvent( QPaintEvent *e );
 
     private:
-        /** read configuration settings from config file */
-        void readSettings();
         void blank();
         int SaverMode;
         int CharSetToUse;
