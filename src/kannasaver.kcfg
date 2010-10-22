@@ -13,6 +13,7 @@
         <choice name="BasicExtendedCompound"/>
       </choices>
     </entry>
+
     <entry name="style" type="Enum">
       <label>Which style should be used</label>
       <choices>
@@ -20,8 +21,49 @@
         <choice name="Katakana"/>
       </choices>
     </entry>
+
+    <entry name ="timer" type="Int">
+      <label></label>
+      <default>5</default>
+      <min>1</min>
+      <max>60</max>
+    </entry>
+
+    <entry name="backgroundColor" type="Color">
+      <label></label>
+      <default>0,0,0</default>
+    </entry>
+
     <entry name="font" type="Font">
       <label>The font used to display the characters.</label>     
+    </entry>
+
+    <entry name="fontSize" type="Int">
+      <label></label>
+      <default>10</default>
+      <min>1</min>
+      <max>100</max>
+    </entry>
+
+    <entry name="fontColor" type="Color">
+      <label></label>
+      <default>255,255,255</default>
+    </entry>
+
+    <entry name="kanaFont" type="Font">
+      <label></label>
+    </entry>
+
+    <entry name="kanaFontSize" type="Int">
+      <label></label>
+      <default>25</default>
+      <min>1</min>
+      <max>100</max>
+    </entry>
+
+    <entry name="kanaFontColor" type="Color">
+      <label></label>
+      <default>255,255,255</default>
     </entry>
   </group>
 </kcfg>
