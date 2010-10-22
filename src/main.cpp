@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Kannasaver - A Screensaver for KDE showing Japanese Characters        *
  *   Copyright 2009  Frederik Schwarzer <schwarzerf@gmail.com>             *
+ *   Copyright 2010  Stefan Böhmann <kde@hilefoks.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,11 +34,10 @@ class KannasaverInterface : public KScreenSaverInterface
         KAboutData *aboutData();
         KScreenSaver *create(WId id);
 
-        QDialog *setup();
+        QDialog *setup(); // krazy:exclude=qclasses
 
     private:
         KAboutData* m_about;
-
 };
 
 
@@ -73,7 +73,7 @@ KScreenSaver* KannasaverInterface::create(WId id)
 }
 
 
-QDialog* KannasaverInterface::setup()
+QDialog* KannasaverInterface::setup() // krazy:exclude=qclasses
 {
     KConfigDialog *dialog = new KConfigDialog( 0, "SettingsDialog", Preferences::self() );
     dialog->setFaceType( KPageDialog::Plain );

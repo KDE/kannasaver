@@ -2,6 +2,7 @@
  *   Kannasaver - A screensaver for KDE showing Japanese Characters        *
  *   Copyright 2004  Mathias Homann <Mathias.Homann@eregion.de>            *
  *   Copyright 2009  Frederik Schwarzer <schwarzerf@gmail.com>             *
+ *   Copyright 2010  Stefan Böhmann <kde@hilefoks.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
