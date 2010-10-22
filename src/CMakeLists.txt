@@ -1,5 +1,5 @@
 
-set( kannasaver.kss_SRCS kanasettings.cpp
+set( kannasaver.kss_SRCS
     kannasaver.cpp
     setupdlg.cpp
 )

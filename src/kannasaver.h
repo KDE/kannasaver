@@ -23,7 +23,6 @@
 #include "setupdlg.h"
 
 #include <kscreensaver.h>
-#include "kanasettings.h"
 
 #include <QPaintEvent>
 #include <QString>
@@ -52,8 +51,6 @@ class Kannasaver : public KScreenSaver
     protected:
         QFont *kanaFont;
         QFont *romajiFont;
-
-        KanaSettings* MySettings;
 };
 
 #endif

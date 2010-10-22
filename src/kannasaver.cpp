@@ -109,7 +109,6 @@ Kannasaver::Kannasaver ( WId id ) : KScreenSaver ( id )
 
 Kannasaver::~Kannasaver()
 {
-    MySettings->save();
     delete kanaFont;
     delete romajiFont;
 }
@@ -123,7 +122,7 @@ void Kannasaver::paintEvent ( QPaintEvent *e )
 
     int mywidth = width();
     int myheight = height();
-    SaverMode = MySettings->Style;
+    SaverMode = MySettings::style();
     int counter = static_cast<int> ( rand() % ( (SaverMode==2)?104: ( (SaverMode==1)?74:46 ) ) );
 
     kDebug() << "Stil: " << ( CharSetToUse==1 ) << "; Range: " << SaverMode << "; Char: " << kanatable[counter].pRomaji << ( ( CharSetToUse==1 )?kanatable[counter].pKatakana:kanatable[counter].pHiragana );
@@ -148,8 +147,6 @@ void Kannasaver::paintEvent ( QPaintEvent *e )
 
 void Kannasaver::readSettings()
 {
-    MySettings=new(KanaSettings);
-    MySettings->load();
 }
 
 
