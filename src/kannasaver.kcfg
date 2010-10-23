@@ -41,7 +41,7 @@
        <default>Arial</default>
        <default code="true">KGlobalSettings::generalFont().family()</default>
      </entry>
-     
+
     <entry name="fontSize" type="Int">
       <label></label>
       <default>10</default>

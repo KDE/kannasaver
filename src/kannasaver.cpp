@@ -120,7 +120,6 @@ int Kannasaver::timerSeconds() const
 void Kannasaver::setTimerSeconds(int value)
 {
     d->timerSeconds = qBound( 1, value, 60 );
-
     d->timer.start( d->timerSeconds * 1000 );
 }
 

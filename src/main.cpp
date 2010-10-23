@@ -90,7 +90,5 @@ int main( int argc, char *argv[] )
     return kScreenSaverMain ( argc, argv, kss );
 }
 
-
 // vim: expandtab:tabstop=4:shiftwidth=4
 // kate: space-indent on; indent-width 4
- 
