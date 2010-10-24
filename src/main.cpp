@@ -48,10 +48,11 @@ KannasaverInterface::KannasaverInterface()
 
     m_about->setShortDescription( ki18n( "A screensaver that shows Japanese characters." ) );
     m_about->setLicense( KAboutData::License_GPL );
-    m_about->setCopyrightStatement( ki18n( "Copyright 2004 Mathias Homann<br/>Copyright 2009 Frederik Schwarzer" ) );
+    m_about->setCopyrightStatement( ki18n( "Copyright 2004 Mathias Homann<br/>Copyright 2009, 2010 Frederik Schwarzer" ) );
 
     m_about->addAuthor( ki18n( "Mathias Homann" ), ki18n( "Original author of Kannasaver." ), "Mathias.Homann@eregion.de" );
-    m_about->addAuthor( ki18n( "Frederik Schwarzer" ), ki18n( "Port to KDE4" ),"schwarzerf@gmail.com" );
+    m_about->addAuthor( ki18n( "Frederik Schwarzer" ), ki18n( "Initiated the port to KDE4." ), "schwarzerf@gmail.com" );
+    m_about->addAuthor( ki18n( "Stefan Böhmann" ), ki18n( "Fixed up the mess left after the KDE4 port." ), "kde@hilefoks.org" );
 }
 
 
