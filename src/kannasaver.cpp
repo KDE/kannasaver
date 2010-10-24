@@ -286,8 +286,8 @@ void Kannasaver::updateSign()
     }
 
     d->sign.first = style() == Preferences::EnumStyle::Hiragana
-                   ? QString::fromUtf8( kanatable[ randomIndex ].pKatakana )
-                   : QString::fromUtf8( kanatable[ randomIndex ].pHiragana );
+                   ? QString::fromUtf8( kanatable[ randomIndex ].pHiragana )
+                   : QString::fromUtf8( kanatable[ randomIndex ].pKatakana );
 
     d->sign.second = QString::fromUtf8( kanatable[ randomIndex ].pRomaji, -1 );
 
