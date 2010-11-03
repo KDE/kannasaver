@@ -76,7 +76,7 @@ KScreenSaver* KannasaverInterface::create(WId id)
 
 QDialog* KannasaverInterface::setup() // krazy:exclude=qclasses
 {
-    KConfigDialog *dialog = new KConfigDialog( 0, "SettingsDialog", Preferences::self() );
+    KConfigDialog *dialog = new KConfigDialog( 0, QLatin1String("SettingsDialog"), Preferences::self() );
     dialog->setFaceType( KPageDialog::Plain );
     dialog->addPage( new SettingsWidget, i18n( "General" ) );
 
