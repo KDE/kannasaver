@@ -44,7 +44,7 @@ class KannasaverInterface : public KScreenSaverInterface
 KannasaverInterface::KannasaverInterface()
   : m_about( 0 )
 {
-    m_about = new KAboutData( "kannasaver.kss", 0, ki18n( "Kannasaver" ), "1.2-dev" );
+    m_about = new KAboutData( "kannasaver.kss", "kannasaver", 0, ki18n( "Kannasaver" ), "1.2-dev" );
 
     m_about->setShortDescription( ki18n( "A screensaver that shows Japanese characters." ) );
     m_about->setLicense( KAboutData::License_GPL );
