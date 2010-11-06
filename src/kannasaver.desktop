@@ -8,6 +8,8 @@ X-KDE-ServiceTypes=ScreenSaver
 Actions=Setup;InWindow;Root
 X-KDE-Category=Miscellaneous
 Name=Kannasaver
+Name[cs]=Kannasaver
+Name[de]=Kannasaver
 Name[nds]=Kannasaver
 Name[pt]=Kannasaver
 Name[sv]=Kannasaver
@@ -17,6 +19,7 @@ Name[x-test]=xxKannasaverxx
 [Desktop Action Setup]
 Exec=kannasaver.kss -setup
 Name=Setup...
+Name[cs]=Nastavení...
 Name[nds]=Instellen...
 Name[pt]=Configurar...
 Name[sv]=Inställningar...
@@ -27,6 +30,7 @@ Icon=kscreensaver
 [Desktop Action InWindow]
 Exec=kannasaver.kss -window-id %w
 Name=Display in specified window
+Name[cs]=Zobrazit v určeném okně
 Name[nds]=In angeven Finster wiesen
 Name[pt]=Mostrar na janela indicada
 Name[sv]=Visa i angivet fönster
@@ -37,6 +41,7 @@ NoDisplay=true
 [Desktop Action Root]
 Exec=kannasaver.kss -root
 Name=Display in root window
+Name[cs]=Zobrazit na pozadí plochy
 Name[nds]=In Hööftfinster wiesen
 Name[pt]=Mostrar na janela de fundo
 Name[sv]=Visa i rotfönstret
