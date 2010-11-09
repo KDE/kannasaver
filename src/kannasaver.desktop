@@ -10,45 +10,57 @@ X-KDE-Category=Miscellaneous
 Name=Kannasaver
 Name[cs]=Kannasaver
 Name[de]=Kannasaver
+Name[es]=Kannasaver
 Name[nds]=Kannasaver
+Name[nl]=Kannasaver
 Name[pt]=Kannasaver
 Name[pt_BR]=Kannasaver
 Name[sv]=Kannasaver
 Name[uk]=Kannasaver
 Name[x-test]=xxKannasaverxx
+Name[zh_TW]=Kannasaver
 
 [Desktop Action Setup]
 Exec=kannasaver.kss -setup
 Name=Setup...
 Name[cs]=Nastavení...
+Name[es]=Configuración...
 Name[nds]=Instellen...
+Name[nl]=Instellingen...
 Name[pt]=Configurar...
 Name[pt_BR]=Configurar...
 Name[sv]=Inställningar...
 Name[uk]=Налаштувати…
 Name[x-test]=xxSetup...xx
+Name[zh_TW]=設定...
 Icon=kscreensaver
 
 [Desktop Action InWindow]
 Exec=kannasaver.kss -window-id %w
 Name=Display in specified window
 Name[cs]=Zobrazit v určeném okně
+Name[es]=Mostrar en la ventana especificada
 Name[nds]=In angeven Finster wiesen
+Name[nl]=In opgegeven venster weergeven
 Name[pt]=Mostrar na janela indicada
 Name[pt_BR]=Exibir na janela especificada
 Name[sv]=Visa i angivet fönster
 Name[uk]=Показувати у визначеному вікні
 Name[x-test]=xxDisplay in specified windowxx
+Name[zh_TW]=在指定的視窗中顯示
 NoDisplay=true
 
 [Desktop Action Root]
 Exec=kannasaver.kss -root
 Name=Display in root window
 Name[cs]=Zobrazit na pozadí plochy
+Name[es]=Mostrar en la ventana raíz
 Name[nds]=In Hööftfinster wiesen
+Name[nl]=In hoofdvenster weergeven
 Name[pt]=Mostrar na janela de fundo
 Name[pt_BR]=Exibir na janela raiz
 Name[sv]=Visa i rotfönstret
 Name[uk]=Показувати у кореневому вікні
 Name[x-test]=xxDisplay in root windowxx
+Name[zh_TW]=在根視窗中顯示
 NoDisplay=true
