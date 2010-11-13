@@ -60,7 +60,7 @@
 
     <entry name="kanaFontSize" type="Int">
       <label></label>
-      <default>25</default>
+      <default>30</default>
       <min>1</min>
       <max>100</max>
     </entry>
