@@ -17,7 +17,7 @@
     </entry>
 
     <entry name="style" type="Enum">
-      <label>Which style should be used</label>
+      <label>Which writing system should be used.</label>
       <choices>
         <choice name="Hiragana"/>
         <choice name="Katakana"/>
@@ -37,8 +37,8 @@
     </entry>
 
     <entry name="font" type="String">
-       <label>The font used to display the characters.</label>
        <default>Arial</default>
+       <label>The font used to display the Romaji characters.</label>
        <default code="true">KGlobalSettings::generalFont().family()</default>
      </entry>
 
@@ -55,8 +55,8 @@
     </entry>
 
     <entry name="kanaFont" type="String">
-      <label></label>
       <default code="true">KGlobalSettings::generalFont().family()</default>
+      <label>The font used to display the Kana characters.</label>
     </entry>
 
     <entry name="kanaFontSize" type="Int">
