@@ -1,0 +1,32 @@
+Kannasaver is a Screen Saver for KDE showing Japanese Characters.
+
+
+It's a KDE Extragear application released under GPL v2, GPL v3 or any later
+version accepted by the membership of KDE e.V.
+
+The current maintainer of Kannasaver is:
+Frederik Schwarzer <schwarzerf@gmail.com>
+
+The Kannasaver website is located at:
+http://kde-look.org/content/show.php/kannasaver?content=16792
+
+Report bugs and wishes at:
+https://bugs.kde.org/enter_bug.cgi?product=Kannasaver
+
+You can browse the latest and older sources at:
+http://projects.kde.org/projects/extragear/artwork/kannasaver/repository
+
+Kannasaver requires kdelibs from KDE 4.3 or higher.
+
+Basic build and installation instructions:
+
+1. tar xfvj kannasaver-<version>.tar.bz2
+2. cd kannasaver-<version>
+3. mkdir build
+4. cd build
+5. cmake -DCMAKE_INSTALL_PREFIX=<path to install to> ../
+6. make
+7. sudo make install
+
+For more, please see the KDE Techbase wiki (http://techbase.kde.org/) and
+the CMake documentation (http://www.cmake.org/).
