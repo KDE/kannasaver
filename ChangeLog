@@ -1,4 +1,14 @@
-FIXME: outdated. Needs to be updated.
+Changes in 1.2:
+ * Port to KDE 4.
+ * Port to KConfigXT,
+ * Background and foreground colors are configurable now
+
+
+
+Many changes due to KDE3 -> KDE4 porting efforts went into 1.2.
+Kannasaver was also moved to the KDE infrastructure for development.
+
+
 
 2007-01-17 Mathias Homann <MHomann@linotype.com>
 	added translation: dutch
