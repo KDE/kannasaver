@@ -16,7 +16,7 @@ https://bugs.kde.org/enter_bug.cgi?product=Kannasaver
 You can browse the latest and older sources at:
 http://projects.kde.org/projects/extragear/artwork/kannasaver/repository
 
-Kannasaver requires kdelibs from KDE 4.3 or higher.
+Kannasaver requires kdelibs from KDE 4.0 or higher.
 
 Basic build and installation instructions:
 
