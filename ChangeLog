@@ -1,7 +1,7 @@
 Changes in 1.2:
  * Port to KDE 4.
- * Port to KConfigXT,
- * Background and foreground colors are configurable now
+ * Port to KConfigXT.
+ * Background and foreground colors are configurable now.
 
 
 
