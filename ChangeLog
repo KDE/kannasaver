@@ -1,3 +1,6 @@
+Changes in 1.2.1:
+ * Fix issue where desktop file was installed with executable flag set.
+
 Changes in 1.2:
  * Port to KDE 4.
  * Port to KConfigXT.
