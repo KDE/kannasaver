@@ -28,6 +28,7 @@ Name[tr]=Kannasaver
 Name[ug]=Kannasaver
 Name[uk]=Kannasaver
 Name[x-test]=xxKannasaverxx
+Name[zh_CN]=Kannasaver
 Name[zh_TW]=Kannasaver
 
 [Desktop Action Setup]
@@ -53,6 +54,7 @@ Name[tr]=Ayar...
 Name[ug]=ئورنات…
 Name[uk]=Налаштувати…
 Name[x-test]=xxSetup...xx
+Name[zh_CN]=设置...
 Name[zh_TW]=設定...
 Icon=kscreensaver
 
@@ -78,6 +80,7 @@ Name[sv]=Visa i angivet fönster
 Name[tr]=Belirtilen pencerede göster
 Name[uk]=Показувати у визначеному вікні
 Name[x-test]=xxDisplay in specified windowxx
+Name[zh_CN]=在指定的窗口中显示
 Name[zh_TW]=在指定的視窗中顯示
 NoDisplay=true
 
@@ -103,5 +106,6 @@ Name[sv]=Visa i rotfönstret
 Name[tr]=Ana pencerede göster
 Name[uk]=Показувати у кореневому вікні
 Name[x-test]=xxDisplay in root windowxx
+Name[zh_CN]=在根窗口中显示
 Name[zh_TW]=在根視窗中顯示
 NoDisplay=true
