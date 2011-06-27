@@ -17,10 +17,14 @@ You can browse the latest and older sources at:
 http://projects.kde.org/projects/extragear/artwork/kannasaver/repository
 
 Kannasaver requires kdelibs from KDE 4.0 or higher.
+Furthermore Japanese fonts are needed. Kannasaver is tested with
+the ttf-sazanami-mincho font package from
+http://sourceforge.jp/projects/efont/.
+The ttf-sazanami-gothic package is needed for non-serif kana font.
 
 Basic build and installation instructions:
 
-1. tar xfvj kannasaver-<version>.tar.bz2
+1. tar xfvj kannasaver-<version>.tar.gz
 2. cd kannasaver-<version>
 3. mkdir build
 4. cd build
